@@ -95,6 +95,34 @@
   --h-haut-bouton: 56px;
   --h-haut-champ: 48px;
 
+  /* Colonne latérale : récapitulatif du panier et de la commande. */
+  --h-lateral: 340px;
+  /* Largeur minimale d'une carte de la grille, et du bouton d'ajout. */
+  --h-colonne-min: 210px;
+  /* Largeur minimale d'un bloc de formulaire ou de récapitulatif. */
+  --h-bloc-min: 300px;
+  /* Largeur minimale d'un champ court dans une grille de formulaire. */
+  --h-champ-min: 180px;
+  /* Colonne des libellés de caractéristiques sur la fiche produit. */
+  --h-libelle-min: 96px;
+  /* Colonne des montants alignés à droite dans le panier. */
+  --h-montant-min: 88px;
+  /* Photo mise en avant dans le bandeau d'accueil. */
+  --h-vedette: 320px;
+  /* Vignettes : logo de la barre du haut, ligne de panier. */
+  --h-logo: 28px;
+  --h-vignette: 72px;
+  --h-vignette-large: 96px;
+
+  /* Longueur de ligne confortable pour un paragraphe. */
+  --h-mesure: 52ch;
+
+  /* ---------- Interaction ---------- */
+  /* Contour de focus : 2px de trait, 2px de décalage (DESIGN.md §8). */
+  --h-focus-trait: 2px;
+  /* Le seul déplacement du projet : la carte produit au survol. */
+  --h-leve: -2px;
+
   /* ---------- Mouvement ---------- */
   --h-transition: 0.18s;
 }

@@ -10,7 +10,7 @@
 
 .carte:hover {
   box-shadow: var(--h-ombre-survol);
-  transform: translateY(-2px);
+  transform: translateY(var(--h-leve));
 }
 
 .cadre {

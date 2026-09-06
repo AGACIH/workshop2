@@ -32,7 +32,7 @@
 }
 
 .phrase {
-  max-width: 46ch;
+  max-width: var(--h-mesure);
   color: var(--h-sur-degrade);
 }
 
@@ -55,7 +55,7 @@
 .cadre {
   align-self: center;
   width: 100%;
-  max-width: 320px;
+  max-width: var(--h-vedette);
   background: var(--h-surface);
   border-radius: var(--h-r-s);
   overflow: hidden;

@@ -36,6 +36,6 @@
   .disposition > aside {
     position: sticky;
     top: calc(var(--h-touche) + var(--h-e4));
-    flex: 0 0 320px;
+    flex: 0 0 var(--h-lateral);
   }
 }

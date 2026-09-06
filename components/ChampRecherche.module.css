@@ -1,0 +1,21 @@
+.champ {
+  width: 100%;
+  height: var(--h-touche);
+  padding-left: calc(var(--h-e3) + var(--h-e3));
+  padding-right: var(--h-e2);
+  background: var(--h-fond);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  transition: border-color var(--h-transition), background var(--h-transition);
+}
+
+.champ::placeholder {
+  color: var(--h-atten);
+}
+
+.champ:focus {
+  border-color: var(--h-bleu);
+  background: var(--h-surface);
+}
+
+/* Le bouton panier place seulement sa zone : son apparence est dans BoutonPanier.module.css. */

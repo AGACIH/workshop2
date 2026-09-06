@@ -138,6 +138,6 @@
 
 @media (min-width: 900px) {
   .blocs {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--h-bloc-min), 1fr));
   }
 }

@@ -83,7 +83,7 @@
 }
 
 .libelle {
-  min-width: 96px;
+  min-width: var(--h-libelle-min);
   color: var(--h-atten);
   font-size: var(--h-t-etiquette);
   font-weight: 800;
@@ -94,7 +94,7 @@
 
 .valeur {
   flex: 1;
-  min-width: 180px;
+  min-width: var(--h-champ-min);
   color: var(--h-encre);
 }
 

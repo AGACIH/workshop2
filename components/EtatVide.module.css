@@ -17,7 +17,7 @@
 }
 
 .explication {
-  max-width: 52ch;
+  max-width: var(--h-mesure);
   color: var(--h-gris);
 }
 

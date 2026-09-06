@@ -91,7 +91,11 @@ numéro de commande tiré au hasard, panier vidé après la confirmation.
 **Aucun champ de paiement n'existe dans le projet.** Le seul `<input>` en dehors des sept champs
 d'adresse est la recherche de la barre du haut.
 
-**Prochaine étape — lot 6** : passe finale sur la recherche, le responsive et les dix cas limites.
+**Lot 6 terminé** : passe finale. Toutes les valeurs de taille qui restaient en dur dans les
+composants sont passées dans `tokens.css`, le champ de recherche réaffiche le terme cherché, et les
+dix cas limites du chapitre 9 ont été rejoués un par un.
+
+Le projet couvre maintenant les douze points de la définition de terminé du chapitre 10.
 
 > Note : Node 25.2.1 est installé sur le poste alors que STACK.md impose Node 22. Le `.nvmrc`
 > aligne le déploiement sur 22 ; installer Node 22 en local reste à faire pour être aligné des
