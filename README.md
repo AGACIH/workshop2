@@ -84,7 +84,14 @@ Les deux lots ont été faits d'un coup parce que le cahier §5.2 demande une co
 un panier mis à jour après l'ajout : livrer un bouton « Ajouter au panier » qui ne fait rien aurait
 été exactement le genre de chose que le chapitre 8 interdit.
 
-**Prochaine étape — lot 5** : commande et confirmation, avec les garde-fous du chapitre 8.
+**Lot 5 terminé** : commande et confirmation, avec les garde-fous du chapitre 8. Bandeau de
+démonstration visible sans défiler sur les deux pages, formulaire d'adresse validé en français,
+numéro de commande tiré au hasard, panier vidé après la confirmation.
+
+**Aucun champ de paiement n'existe dans le projet.** Le seul `<input>` en dehors des sept champs
+d'adresse est la recherche de la barre du haut.
+
+**Prochaine étape — lot 6** : passe finale sur la recherche, le responsive et les dix cas limites.
 
 > Note : Node 25.2.1 est installé sur le poste alors que STACK.md impose Node 22. Le `.nvmrc`
 > aligne le déploiement sur 22 ; installer Node 22 en local reste à faire pour être aligné des

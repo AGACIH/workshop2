@@ -1,0 +1,35 @@
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e3);
+}
+
+.titreBloc {
+  font-size: var(--h-t-sous-titre);
+  font-weight: 800;
+}
+
+.obligatoires {
+  margin-top: var(--h-e-mini);
+  color: var(--h-gris);
+  font-size: var(--h-t-petit);
+}
+
+/* Le formulaire à gauche, le récapitulatif à droite (DESIGN.md §5). */
+@media (min-width: 900px) {
+  .formulaire {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--h-e5);
+  }
+
+  .formulaire > div {
+    flex: 1 1 auto;
+  }
+
+  .formulaire > aside {
+    position: sticky;
+    top: calc(var(--h-touche) + var(--h-e4));
+    flex: 0 0 340px;
+  }
+}

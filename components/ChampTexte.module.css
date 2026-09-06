@@ -1,0 +1,42 @@
+.champ,
+.champLarge {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e-mini);
+}
+
+.libelle {
+  color: var(--h-gris);
+  font-size: var(--h-t-petit);
+  font-weight: 700;
+}
+
+.saisie {
+  height: var(--h-haut-champ);
+  padding-inline: var(--h-e-carte);
+  background: var(--h-fond);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  transition: border-color var(--h-transition), background var(--h-transition);
+}
+
+.saisie:focus {
+  border-color: var(--h-bleu);
+  background: var(--h-surface);
+}
+
+.enErreur {
+  border-color: var(--h-rouge);
+}
+
+.erreur {
+  color: var(--h-rouge);
+  font-size: var(--h-t-petit);
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .champLarge {
+    grid-column: 1 / -1;
+  }
+}

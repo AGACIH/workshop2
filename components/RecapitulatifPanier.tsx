@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { formaterPrix } from "@/lib/format";
 import { SEUIL_FRANCO, usePanier } from "@/lib/panier";
 import styles from "./RecapitulatifPanier.module.css";
@@ -47,8 +48,12 @@ export default function RecapitulatifPanier() {
         </p>
       )}
 
-      <p className={styles.suite}>
-        La commande sera disponible à la prochaine étape du projet.
+      <Link href="/commande" className={styles.commander}>
+        Passer commande
+      </Link>
+
+      <p className={styles.mention}>
+        Aucun paiement ne vous sera demandé, à aucun moment.
       </p>
     </aside>
   );
