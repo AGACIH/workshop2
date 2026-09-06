@@ -77,7 +77,14 @@ contrôle, la barre du haut, le pied de page, la vitrine, les filtres et la rech
 6 septembre 2026 — **les dix photos s'affichent**, le logo et la photo du bandeau aussi (12 images
 sur 12, aucun échec), les filtres et la recherche répondent, aucun défilement latéral.
 
-**Prochaine étape — lot 3** : fiche produit et produits similaires.
+**Lots 3 et 4 terminés, ensemble** : fiche produit, produits similaires, et le panier complet —
+ajout, quantités, totaux, franco de port, persistance dans le navigateur, état vide.
+
+Les deux lots ont été faits d'un coup parce que le cahier §5.2 demande une confirmation visible et
+un panier mis à jour après l'ajout : livrer un bouton « Ajouter au panier » qui ne fait rien aurait
+été exactement le genre de chose que le chapitre 8 interdit.
+
+**Prochaine étape — lot 5** : commande et confirmation, avec les garde-fous du chapitre 8.
 
 > Note : Node 25.2.1 est installé sur le poste alors que STACK.md impose Node 22. Le `.nvmrc`
 > aligne le déploiement sur 22 ; installer Node 22 en local reste à faire pour être aligné des

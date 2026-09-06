@@ -42,6 +42,7 @@ export const PRODUITS: readonly Produit[] = [
       "Bleu nuit, logo bleu dégradé",
     ],
     photo: "/produits/hoodie.jpg",
+    photoGrande: "/produits/hoodie-lg.jpg",
     photoAlt: "Sweat à capuche bleu nuit, capuche doublée et logo H bleu dégradé au centre",
     nouveaute: true,
     enStock: true,

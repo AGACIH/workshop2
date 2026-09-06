@@ -1,0 +1,83 @@
+.ligne {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--h-e2) var(--h-e3);
+  padding: var(--h-e3);
+  background: var(--h-surface);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+}
+
+.vignette {
+  grid-row: span 2;
+  width: 72px;
+  background: var(--h-photo);
+  border-radius: var(--h-e1);
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e-mini);
+}
+
+.nom {
+  color: var(--h-encre);
+  font-size: var(--h-t-carte);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.nom:hover {
+  color: var(--h-bleu);
+}
+
+.unitaire {
+  color: var(--h-gris);
+  font-size: var(--h-t-petit);
+}
+
+.total {
+  color: var(--h-encre);
+  font-weight: 800;
+}
+
+.retirer {
+  justify-self: start;
+  height: var(--h-touche);
+  color: var(--h-gris);
+  font-size: var(--h-t-petit);
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color var(--h-transition);
+}
+
+.retirer:hover {
+  color: var(--h-rouge);
+}
+
+/* À partir de 640 px, tout tient sur une seule ligne. */
+@media (min-width: 640px) {
+  .ligne {
+    grid-template-columns: auto 1fr auto auto auto;
+  }
+
+  .vignette {
+    grid-row: auto;
+    width: 96px;
+  }
+
+  .total {
+    min-width: 88px;
+    text-align: right;
+  }
+}

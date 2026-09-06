@@ -1,0 +1,56 @@
+.panier {
+  display: flex;
+  align-items: center;
+  gap: var(--h-e1);
+  height: var(--h-touche);
+  padding-inline: var(--h-e2);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  color: var(--h-encre);
+  font-weight: 700;
+  transition: border-color var(--h-transition), color var(--h-transition);
+}
+
+.panier:hover {
+  border-color: var(--h-bleu);
+  color: var(--h-bleu);
+}
+
+.cadreIcone {
+  position: relative;
+  display: flex;
+}
+
+.icone {
+  width: var(--h-e3);
+  height: var(--h-e3);
+}
+
+.pastille {
+  position: absolute;
+  top: calc(-1 * var(--h-e1));
+  left: var(--h-e2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--h-e3);
+  height: var(--h-e3);
+  padding-inline: var(--h-e-mini);
+  background: var(--h-bleu);
+  border-radius: var(--h-r-pill);
+  color: var(--h-surface);
+  font-size: var(--h-t-etiquette);
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Le libellé n'apparaît qu'à partir de 640 px : sur téléphone, l'icône suffit. */
+.libelle {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .libelle {
+    display: inline;
+  }
+}

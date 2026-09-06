@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { FournisseurPanier } from "@/lib/panier";
 import "@/tokens.css";
 import "./globals.css";
 
@@ -26,9 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={jakarta.variable}>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <FournisseurPanier>
+          <Header />
+          {children}
+          <Footer />
+        </FournisseurPanier>
       </body>
     </html>
   );

@@ -50,6 +50,10 @@ for (const p of PRODUITS) {
     signaler("R2", `photo introuvable — public${p.photo}`);
   }
 
+  if (p.photoGrande !== undefined && !existsSync(join(RACINE, "public", p.photoGrande))) {
+    signaler("R2", `grande photo introuvable — public${p.photoGrande}`);
+  }
+
   // R3 — exactement trois caractéristiques, aucune vide.
   if (!Array.isArray(p.caracteristiques) || p.caracteristiques.length !== 3) {
     signaler("R3", `${p.id} n'a pas exactement trois caractéristiques`);

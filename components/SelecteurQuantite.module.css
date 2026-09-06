@@ -1,0 +1,33 @@
+.groupe {
+  display: inline-flex;
+  align-items: center;
+  height: var(--h-touche);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  background: var(--h-surface);
+}
+
+.bouton {
+  width: var(--h-touche);
+  height: var(--h-touche);
+  color: var(--h-encre);
+  font-size: var(--h-t-carte);
+  font-weight: 800;
+  transition: color var(--h-transition);
+}
+
+.bouton:hover:not(:disabled) {
+  color: var(--h-bleu);
+}
+
+.bouton:disabled {
+  color: var(--h-atten);
+  cursor: not-allowed;
+}
+
+.valeur {
+  min-width: var(--h-e4);
+  color: var(--h-encre);
+  font-weight: 700;
+  text-align: center;
+}

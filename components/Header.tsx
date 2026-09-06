@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BoutonPanier from "@/components/BoutonPanier";
 import { CATEGORIES } from "@/lib/catalogue";
 import styles from "./Header.module.css";
 
@@ -7,9 +8,6 @@ import styles from "./Header.module.css";
  * La barre du haut, commune à tous les écrans (cahier §5).
  * Composant serveur : la recherche est un formulaire GET natif, les catégories
  * sont des liens. Rien ici n'a besoin de JavaScript.
- *
- * La pastille du panier viendra au lot 4 : tant que le panier n'existe pas,
- * afficher un compteur serait mentir sur un état qui n'est pas encore lu.
  */
 export default function Header() {
   return (
@@ -46,21 +44,8 @@ export default function Header() {
           />
         </form>
 
-        <Link href="/panier" className={styles.panier} aria-label="Voir le panier">
-          <svg className={styles.icone} viewBox="0 0 22 22" aria-hidden="true">
-            <path
-              d="M3 4h2.2l2 10.2h9.4l2-7.4H6.4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <circle cx="9" cy="18" r="1.4" fill="currentColor" />
-            <circle cx="16" cy="18" r="1.4" fill="currentColor" />
-          </svg>
-          <span className={styles.libellePanier}>Panier</span>
-        </Link>
+        <BoutonPanier className={styles.panier} />
+
       </div>
     </header>
   );

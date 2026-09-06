@@ -21,6 +21,11 @@ export type Produit = {
   caracteristiques: Caracteristiques;
   /** Chemin public, toujours sous /produits/ (STACK.md §5). */
   photo: string;
+  /**
+   * Version 960 px pour la fiche produit, quand elle a été livrée.
+   * Sinon la fiche affiche la photo carrée de 640 px.
+   */
+  photoGrande?: string;
   /** Description de la photo pour les lecteurs d'écran. Jamais « image » ni « photo ». */
   photoAlt: string;
   nouveaute: boolean;
