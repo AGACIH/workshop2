@@ -1,0 +1,87 @@
+.bandeau {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e4);
+  padding: var(--h-e4);
+  background: var(--h-degrade);
+  border-radius: var(--h-r-l);
+  color: var(--h-surface);
+}
+
+.texte {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--h-e2);
+}
+
+.surtitre {
+  color: var(--h-sur-degrade);
+  font-size: var(--h-t-etiquette);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--h-lettrage-surtitre);
+}
+
+/* 28 px sur téléphone, 40 px dès qu'il y a la place (DESIGN.md §6). */
+.accroche {
+  color: var(--h-surface);
+  font-size: var(--h-t-titre);
+  font-weight: 800;
+  line-height: var(--h-inter-affiche);
+}
+
+.phrase {
+  max-width: 46ch;
+  color: var(--h-sur-degrade);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  height: var(--h-touche);
+  padding-inline: var(--h-e3);
+  background: var(--h-surface);
+  border-radius: var(--h-r-s);
+  color: var(--h-bleu);
+  font-weight: 800;
+  transition: box-shadow var(--h-transition);
+}
+
+.action:hover {
+  box-shadow: var(--h-ombre-survol);
+}
+
+.cadre {
+  align-self: center;
+  width: 100%;
+  max-width: 320px;
+  background: var(--h-surface);
+  border-radius: var(--h-r-s);
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+@media (min-width: 640px) {
+  .accroche {
+    font-size: var(--h-t-affiche);
+  }
+}
+
+@media (min-width: 900px) {
+  .bandeau {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cadre {
+    flex-shrink: 0;
+  }
+}

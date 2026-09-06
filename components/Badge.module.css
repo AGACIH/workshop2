@@ -1,0 +1,34 @@
+.badge {
+  display: inline-block;
+  border-radius: var(--h-r-pill);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: var(--h-inter-bloc);
+  white-space: nowrap;
+}
+
+/* « Nouveau », posé sur la photo, en haut à gauche de la carte. */
+.nouveau {
+  padding: var(--h-e-mini) var(--h-e1);
+  background: var(--h-cyan);
+  color: var(--h-cyan-encre);
+  font-size: var(--h-t-mini);
+  letter-spacing: var(--h-lettrage-badge);
+}
+
+/* Disponibilité, sur la fiche produit. */
+.stock {
+  padding: var(--h-e-mini) var(--h-e2);
+  background: var(--h-vert-fond);
+  color: var(--h-vert);
+  font-size: var(--h-t-etiquette);
+  letter-spacing: var(--h-lettrage-badge);
+}
+
+.rupture {
+  padding: var(--h-e-mini) var(--h-e2);
+  background: var(--h-photo);
+  color: var(--h-gris);
+  font-size: var(--h-t-etiquette);
+  letter-spacing: var(--h-lettrage-badge);
+}

@@ -1,0 +1,33 @@
+.pied {
+  background: var(--h-surface);
+  border-top: 1px solid var(--h-bord);
+}
+
+.contenu {
+  max-width: var(--h-largeur);
+  margin-inline: auto;
+  padding: var(--h-e4) var(--h-e3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--h-e2);
+}
+
+.copyright {
+  font-size: var(--h-t-petit);
+  color: var(--h-atten);
+}
+
+/* La mention de démonstration : ambre, et lisible. Jamais atténuée. */
+.demo {
+  margin-top: var(--h-e-mini);
+  font-size: var(--h-t-petit);
+  font-weight: 700;
+  color: var(--h-ambre);
+}
+
+.secondaire {
+  font-size: var(--h-t-petit);
+  font-weight: 600;
+  color: var(--h-gris);
+}

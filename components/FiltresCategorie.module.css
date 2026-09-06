@@ -1,0 +1,34 @@
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--h-e1);
+}
+
+.filtre {
+  display: inline-flex;
+  align-items: center;
+  height: var(--h-touche);
+  padding-inline: var(--h-e3);
+  background: var(--h-surface);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-pill);
+  color: var(--h-gris);
+  font-weight: 700;
+  transition: border-color var(--h-transition), color var(--h-transition);
+}
+
+.filtre:hover {
+  border-color: var(--h-bleu);
+  color: var(--h-bleu);
+}
+
+.actif,
+.actif:hover {
+  background: var(--h-bleu);
+  border-color: var(--h-bleu);
+  color: var(--h-surface);
+}
+
+.compte {
+  opacity: 0.8;
+}

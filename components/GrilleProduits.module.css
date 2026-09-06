@@ -1,0 +1,10 @@
+/*
+  Cette seule règle produit tout : plusieurs colonnes sur grand écran, deux vers
+  640 px, une seule à 390 px. Ne pas la remplacer par des colonnes fixes par
+  point de rupture (DESIGN.md §5).
+*/
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--h-e3);
+}

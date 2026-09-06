@@ -1,0 +1,142 @@
+.barre {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--h-surface);
+  border-bottom: 1px solid var(--h-bord);
+}
+
+.contenu {
+  max-width: var(--h-largeur);
+  margin-inline: auto;
+  padding: var(--h-e2) var(--h-e3);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "marque . panier"
+    "recherche recherche recherche"
+    "nav nav nav";
+  align-items: center;
+  gap: var(--h-e2);
+}
+
+.marque {
+  grid-area: marque;
+  display: flex;
+  align-items: center;
+  gap: var(--h-e1);
+}
+
+.logo {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--h-e1);
+}
+
+.nom {
+  font-size: var(--h-t-sous-titre);
+  font-weight: 800;
+  color: var(--h-encre);
+  letter-spacing: var(--h-lettrage-sous-titre);
+}
+
+.nav {
+  grid-area: nav;
+  display: flex;
+  gap: var(--h-e3);
+  overflow-x: auto;
+}
+
+.lien {
+  font-weight: 600;
+  color: var(--h-gris);
+  white-space: nowrap;
+  line-height: var(--h-touche);
+  transition: color var(--h-transition);
+}
+
+.lien:hover {
+  color: var(--h-bleu);
+}
+
+.recherche {
+  grid-area: recherche;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.loupe {
+  position: absolute;
+  left: var(--h-e2);
+  width: var(--h-e3);
+  height: var(--h-e3);
+  color: var(--h-atten);
+  pointer-events: none;
+}
+
+.champ {
+  width: 100%;
+  height: var(--h-touche);
+  padding-left: calc(var(--h-e3) + var(--h-e3));
+  padding-right: var(--h-e2);
+  background: var(--h-fond);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  transition: border-color var(--h-transition), background var(--h-transition);
+}
+
+.champ::placeholder {
+  color: var(--h-atten);
+}
+
+.champ:focus {
+  border-color: var(--h-bleu);
+  background: var(--h-surface);
+}
+
+.panier {
+  grid-area: panier;
+  display: flex;
+  align-items: center;
+  gap: var(--h-e1);
+  height: var(--h-touche);
+  padding-inline: var(--h-e2);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  color: var(--h-encre);
+  font-weight: 700;
+  transition: border-color var(--h-transition), color var(--h-transition);
+}
+
+.panier:hover {
+  border-color: var(--h-bleu);
+  color: var(--h-bleu);
+}
+
+.icone {
+  width: var(--h-e3);
+  height: var(--h-e3);
+}
+
+/* Le libellé n'apparaît qu'à partir de 640 px : sur téléphone, l'icône suffit. */
+.libellePanier {
+  display: none;
+}
+
+/* La barre revient sur une seule ligne dès qu'il y a la place (DESIGN.md §5). */
+@media (min-width: 640px) {
+  .contenu {
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-areas: "marque nav recherche panier";
+    gap: var(--h-e3);
+  }
+
+  .nav {
+    overflow-x: visible;
+  }
+
+  .libellePanier {
+    display: inline;
+  }
+}
