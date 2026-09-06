@@ -139,9 +139,12 @@ Branche `lot-2-deploiement`, ou publication directe de `main` après fusion du l
 
 ---
 
-## 4. Lot 3 — Fiche produit
+## 4. Lots 3 et 4 — Fiche produit et panier
 
-Branche `lot-3-fiche-produit`.
+Branche `lot-3-fiche-et-panier`. **Les deux lots ont été réunis**, décision prise le 6 septembre 2026 :
+le cahier §5.2 exige qu'après l'ajout, une confirmation soit visible et le panier mis à jour. Livrer
+la fiche sans le panier aurait donc voulu dire livrer un bouton qui ne fait rien — ce que le
+chapitre 8 interdit. Le panier étant écrit, il fallait aussi que l'écran panier dise la vérité.
 
 ### Contenu
 

@@ -1,0 +1,52 @@
+.bloc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e2);
+}
+
+.ligne {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--h-e2);
+}
+
+.ajouter {
+  flex: 1;
+  min-width: 210px;
+  height: var(--h-haut-bouton);
+  padding-inline: var(--h-e4);
+  background: var(--h-bleu);
+  border-radius: var(--h-r-s);
+  color: var(--h-surface);
+  font-weight: 800;
+  transition: background var(--h-transition), box-shadow var(--h-transition);
+}
+
+.ajouter:hover {
+  background: var(--h-bleu-fonce);
+  box-shadow: var(--h-ombre-bleue);
+}
+
+.confirmation {
+  color: var(--h-vert);
+  font-weight: 700;
+}
+
+.lien {
+  color: var(--h-bleu);
+  text-decoration: underline;
+}
+
+/* Un produit en rupture garde le gabarit du bouton, mais n'agit pas. */
+.indisponible {
+  display: flex;
+  align-items: center;
+  min-height: var(--h-haut-bouton);
+  padding: var(--h-e2) var(--h-e3);
+  background: var(--h-photo);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  color: var(--h-gris);
+  font-weight: 600;
+}

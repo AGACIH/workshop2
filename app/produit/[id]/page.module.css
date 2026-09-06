@@ -1,0 +1,139 @@
+.ariane {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--h-e1);
+  margin-bottom: var(--h-e3);
+  color: var(--h-gris);
+  font-size: var(--h-t-petit);
+  font-weight: 600;
+}
+
+.ariane a:hover {
+  color: var(--h-bleu);
+}
+
+.arianeActuel {
+  color: var(--h-atten);
+}
+
+.fiche {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e4);
+}
+
+.cadre {
+  background: var(--h-photo);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e2);
+}
+
+.categorie {
+  color: var(--h-atten);
+  font-size: var(--h-t-etiquette);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--h-lettrage-etiquette);
+}
+
+.nom {
+  font-size: var(--h-t-section);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.prix {
+  color: var(--h-bleu);
+  font-size: var(--h-t-prix);
+  font-weight: 800;
+}
+
+.description {
+  color: var(--h-gris);
+}
+
+.caracteristiques {
+  display: flex;
+  flex-direction: column;
+  margin-block: var(--h-e2);
+  border-top: 1px solid var(--h-bord);
+}
+
+.caracteristique {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--h-e2);
+  padding-block: var(--h-e2);
+  border-bottom: 1px solid var(--h-bord);
+}
+
+.libelle {
+  min-width: 96px;
+  color: var(--h-atten);
+  font-size: var(--h-t-etiquette);
+  font-weight: 800;
+  line-height: var(--h-inter-texte);
+  text-transform: uppercase;
+  letter-spacing: var(--h-lettrage-etiquette);
+}
+
+.valeur {
+  flex: 1;
+  min-width: 180px;
+  color: var(--h-encre);
+}
+
+.retour {
+  color: var(--h-bleu);
+  font-weight: 700;
+}
+
+.similaires {
+  margin-top: var(--h-e5);
+}
+
+.titreSection {
+  margin-bottom: var(--h-e3);
+  font-size: var(--h-t-section);
+  font-weight: 800;
+}
+
+@media (min-width: 640px) {
+  .nom {
+    font-size: var(--h-t-titre);
+  }
+}
+
+/* Deux colonnes : la photo à gauche, les informations à droite (cahier §5.2). */
+@media (min-width: 900px) {
+  .fiche {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--h-e5);
+  }
+
+  .cadre {
+    flex: 1 1 0;
+    position: sticky;
+    top: calc(var(--h-touche) + var(--h-e4));
+  }
+
+  .infos {
+    flex: 1 1 0;
+  }
+}

@@ -1,0 +1,70 @@
+.recapitulatif {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e2);
+  padding: var(--h-e3);
+  background: var(--h-surface);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+}
+
+.titre {
+  font-size: var(--h-t-section);
+  font-weight: 800;
+}
+
+.lignes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e1);
+}
+
+.ligne {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--h-e2);
+  color: var(--h-gris);
+}
+
+.ligne dd {
+  color: var(--h-encre);
+  font-weight: 700;
+}
+
+.offerte {
+  color: var(--h-vert);
+}
+
+.totalLigne {
+  margin-top: var(--h-e1);
+  padding-top: var(--h-e2);
+  border-top: 1px solid var(--h-bord);
+  color: var(--h-encre);
+  font-weight: 700;
+}
+
+.totalLigne dd {
+  font-size: var(--h-t-prix);
+  font-weight: 800;
+}
+
+.franco {
+  padding: var(--h-e2);
+  background: var(--h-photo);
+  border-radius: var(--h-e1);
+  color: var(--h-encre);
+  font-size: var(--h-t-petit);
+  font-weight: 700;
+}
+
+.francoAtteint {
+  color: var(--h-vert);
+  font-size: var(--h-t-petit);
+  font-weight: 700;
+}
+
+.suite {
+  color: var(--h-atten);
+  font-size: var(--h-t-petit);
+}
