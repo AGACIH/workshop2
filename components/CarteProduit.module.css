@@ -1,0 +1,81 @@
+.carte {
+  display: block;
+  background: var(--h-surface);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+  overflow: hidden;
+  box-shadow: var(--h-ombre-repos);
+  transition: box-shadow var(--h-transition), transform var(--h-transition);
+}
+
+.carte:hover {
+  box-shadow: var(--h-ombre-survol);
+  transform: translateY(-2px);
+}
+
+.cadre {
+  position: relative;
+  background: var(--h-photo);
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.marqueur {
+  position: absolute;
+  top: var(--h-e1);
+  left: var(--h-e1);
+}
+
+/* Le seul message de stock du projet : il vient du catalogue, jamais d'un compteur
+   fabriqué pour presser l'acheteur (cahier §8). */
+.rupture {
+  position: absolute;
+  right: var(--h-e1);
+  bottom: var(--h-e1);
+  left: var(--h-e1);
+  padding: var(--h-e1);
+  background: var(--h-voile);
+  border-radius: var(--h-e1);
+  color: var(--h-surface);
+  font-size: var(--h-t-etiquette);
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: var(--h-lettrage-badge);
+}
+
+.texte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e-mini);
+  padding: var(--h-e2) var(--h-e-carte) var(--h-e-bloc);
+}
+
+.categorie {
+  color: var(--h-atten);
+  font-size: var(--h-t-etiquette);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--h-lettrage-etiquette);
+}
+
+/* Cas limite 10 du cahier : un nom très long passe à la ligne, il ne déborde pas. */
+.nom {
+  color: var(--h-encre);
+  font-size: var(--h-t-carte);
+  font-weight: 700;
+  line-height: var(--h-inter-bloc);
+  letter-spacing: var(--h-lettrage-sous-titre);
+  overflow-wrap: anywhere;
+}
+
+.prix {
+  color: var(--h-bleu);
+  font-size: var(--h-t-carte);
+  font-weight: 800;
+}

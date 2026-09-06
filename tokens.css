@@ -1,0 +1,106 @@
+/*
+  H Store — jetons de design.
+  Source de vérité visuelle unique du projet (STACK.md §3, DESIGN.md).
+
+  Aucune couleur, taille de police, espacement, rayon ou ombre ne s'écrit ailleurs.
+  Les seules valeurs en dur admises dans les composants sont les points de rupture
+  des @media et les 1px de bordure.
+
+  Les tailles de police sont en rem pour suivre le réglage de taille du navigateur ;
+  les valeurs en commentaire donnent l'équivalent en pixels de DESIGN.md.
+*/
+
+:root {
+  /* ---------- Marque ---------- */
+  --h-bleu: #0c54e4;
+  --h-bleu-fonce: #0c2484;
+  --h-bleu-clair: #0c84fc;
+  --h-cyan: #3cccfc;
+  --h-cyan-encre: #062338;
+  --h-sur-degrade: #dce8ff;
+
+  /* Un seul dégradé dans tout le projet : le bandeau d'accueil. */
+  --h-degrade: linear-gradient(135deg, #0c2484 0%, #0c54e4 38%, #0c84fc 72%, #3cccfc 100%);
+
+  /* ---------- Neutres ---------- */
+  --h-encre: #0b1220;
+  --h-gris: #4a5566;
+  --h-atten: #7a8697; /* décoratif : jamais pour une information à lire (DESIGN.md §2) */
+  --h-bord: #e6e9ef;
+  --h-fond: #f7f8fa;
+  --h-surface: #ffffff;
+  --h-photo: #f1f3f7;
+
+  /* ---------- États ---------- */
+  --h-vert: #0b7a55;
+  --h-vert-fond: #e6f4ee;
+  --h-rouge: #b3261e;
+  --h-voile: rgba(11, 18, 32, 0.88);
+
+  /* Ambre : réservé à la mention de démonstration (cahier §8). Rien d'autre. */
+  --h-ambre: #8a5a05;
+  --h-ambre-fond: #fbf1df;
+  --h-ambre-bord: #ebd9b4;
+
+  /* ---------- Typographie ---------- */
+  --h-font: var(--font-jakarta), "Helvetica Neue", Helvetica, sans-serif;
+
+  --h-t-affiche: 2.5rem; /* 40 px */
+  --h-t-titre: 2rem; /* 32 px */
+  --h-t-prix: 1.5rem; /* 24 px */
+  --h-t-section: 1.375rem; /* 22 px */
+  --h-t-sous-titre: 1.25rem; /* 20 px */
+  --h-t-carte: 1.0625rem; /* 17 px */
+  --h-t-base: 0.9375rem; /* 15 px */
+  --h-t-petit: 0.8125rem; /* 13 px */
+  --h-t-etiquette: 0.75rem; /* 12 px */
+  --h-t-mini: 0.6875rem; /* 11 px — badge « Nouveau » uniquement */
+
+  --h-inter-affiche: 1.05;
+  --h-inter-titre: 1.15;
+  --h-inter-bloc: 1.3;
+  --h-inter-petit: 1.5;
+  --h-inter-texte: 1.6;
+
+  --h-lettrage-titre: -0.02em;
+  --h-lettrage-sous-titre: -0.01em;
+  --h-lettrage-etiquette: 0.1em;
+  --h-lettrage-badge: 0.08em;
+  --h-lettrage-surtitre: 0.16em;
+
+  /* ---------- Espacements ---------- */
+  --h-e1: 8px;
+  --h-e2: 12px;
+  --h-e3: 20px;
+  --h-e4: 32px;
+  --h-e5: 48px;
+
+  /* Ajustements internes à un composant, jamais pour structurer une page. */
+  --h-e-mini: 4px;
+  --h-e-carte: 14px;
+  --h-e-bloc: 16px;
+
+  /* ---------- Formes ---------- */
+  --h-r-s: 14px;
+  --h-r-l: 22px;
+  --h-r-pill: 99px;
+
+  --h-ombre-repos: 0 1px 2px rgba(11, 18, 32, 0.04);
+  --h-ombre-survol: 0 14px 30px rgba(11, 18, 32, 0.12);
+  --h-ombre-bleue: 0 12px 26px rgba(12, 36, 132, 0.28);
+
+  /* ---------- Gabarit ---------- */
+  --h-largeur: 1240px;
+  --h-touche: 44px; /* cible tactile minimale, cahier §7 */
+  --h-haut-bouton: 56px;
+  --h-haut-champ: 48px;
+
+  /* ---------- Mouvement ---------- */
+  --h-transition: 0.18s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --h-transition: 0s;
+  }
+}

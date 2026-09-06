@@ -90,11 +90,28 @@ toute demande contraire est signalée avant d'être mise en œuvre.
 ### Ajouts de la maquette (chapitre 8 ci-dessus)
 
 **Conservés** : le bandeau « Collection 2026 — À porter, à emporter », le compteur dans le filtre
-actif (« Tout · 10 »), le pied de page avec adresse postale.
+actif (« Tout · 10 »), le tri qui place les nouveautés en tête de grille, le pied de page avec
+adresse postale.
 
 **Écartés** : le lien « Guide des tailles » (il mènerait à une page inexistante) et la mention
 « Livraison en 48 h — retours gratuits sous 30 jours » (promesse commerciale invérifiable, hors
 périmètre, contraire à l'esprit du chapitre 8 du cahier).
+
+### Décisions prises au lot 1
+
+- **Taille déclarée des photos : 640 × 640**, et non les 900 de STACK.md §5. Les fichiers livrés font
+  réellement 640 px (seul `hoodie-lg.jpg` fait 960). Déclarer 900 reviendrait à demander au navigateur
+  d'agrandir une source qui n'existe pas. `hoodie-lg.jpg` reste disponible pour la fiche produit du
+  lot 3, où la photo s'affiche en grand.
+- **Aucun `"use client"` dans le lot 1.** Les filtres et la recherche vivent dans l'adresse
+  (`?categorie=…&q=…`) : ce sont des liens et un formulaire GET natif. La vitrine reste un composant
+  serveur, et un filtre peut se partager ou se recharger sans se perdre. STACK.md §6 autorisait un
+  composant client pour les filtres ; il s'est avéré inutile.
+- **`app/panier/page.tsx` existe dès le lot 1**, avec le seul état vide. Le panier réel est le lot 4,
+  mais le bouton panier de la barre du haut doit mener quelque part : il est accessible en permanence
+  (cahier §7), et un lien qui tombe sur la page introuvable serait un défaut visible.
+- **ESLint ignore `maquette/`** : c'est de la documentation de référence, ni modifiée ni déployée.
+  La raison est écrite dans `eslint.config.mjs`.
 
 ### Rappels qui découlent de ces décisions
 

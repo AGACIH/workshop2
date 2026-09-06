@@ -57,9 +57,10 @@ fichiers autres que `README.md`, `.gitignore` et `docs/`. Le résultat est ident
 ## Commandes
 
 ```bash
-npm run dev      # développement
-npm run build    # vérification technique — doit passer sans erreur
-npm run lint     # doit passer sans avertissement
+npm run dev        # développement
+npm run verifier   # contrôle d'intégrité du catalogue — aucun signalement attendu
+npm run lint       # doit passer sans avertissement
+npm run build      # vérification technique — doit passer sans erreur
 ```
 
 ## État
@@ -68,8 +69,11 @@ npm run lint     # doit passer sans avertissement
 (voir `maquette/ECARTS.md`), le cahier est passé en version 1.1, `DESIGN.md` et `CLAUDE.md` sont
 écrits, le dépôt est ouvert, le socle Next.js est en place et `npm run build` passe.
 
-**Prochaine étape — lot 1** : `tokens.css`, police, photos dans `public/produits/`, catalogue
-TypeScript, script de contrôle, barre du haut, vitrine et filtres.
+**Lot 1 terminé** : `tokens.css`, Plus Jakarta Sans par `next/font/google`, les onze photos dans
+`public/produits/`, le catalogue en TypeScript (prix en centimes), `lib/format.ts`, le script de
+contrôle, la barre du haut, le pied de page, la vitrine, les filtres et la recherche.
+
+**Prochaine étape — lot 3** : fiche produit et produits similaires.
 
 > Note : Node 25.2.1 est installé sur le poste alors que STACK.md impose Node 22. Le `.nvmrc`
 > aligne le déploiement sur 22 ; installer Node 22 en local reste à faire pour être aligné des
