@@ -95,7 +95,29 @@ d'adresse est la recherche de la barre du haut.
 composants sont passées dans `tokens.css`, le champ de recherche réaffiche le terme cherché, et les
 dix cas limites du chapitre 9 ont été rejoués un par un.
 
-Le projet couvre maintenant les douze points de la définition de terminé du chapitre 10.
+## Livraison
+
+Les six lots sont fusionnés dans `main` et en production. La définition de terminé du chapitre 10 du
+cahier des charges a été passée point par point sur **l'adresse de production**, le 6 septembre 2026 :
+
+- `npm run build`, `npm run lint` et `npm run verifier` passent sans rien signaler.
+- Les cinq écrans répondent, plus la page introuvable qui renvoie bien un 404.
+- **Les dix photos s'affichent en ligne**, vérifiées une par une.
+- Filtres, recherche et effacement de la recherche fonctionnent en production.
+- Deux produits ajoutés puis page rechargée : le panier est intact.
+- Modifier une quantité met à jour la ligne, le total et la pastille.
+- Au-dessus de 50 € de sous-total, la livraison passe à « Offerte ».
+- Commande passée en production : confirmation `H-2026-5796`, 65,00 €, adresse affichée, **panier
+  vidé**.
+- Une recherche du mot « carte » dans tout le projet ne trouve **aucun champ de saisie de carte
+  bancaire**. Le site compte huit champs : la recherche et les sept champs d'adresse.
+- La mention de démonstration est visible sans défiler sur la commande et la confirmation, à 1280 px
+  comme à 390 px.
+- Les dix cas limites du chapitre 9 sont traités.
+- À 390 px, aucune page ne défile latéralement.
+- Aucune couleur, taille ou espacement en dur : tout vient de `tokens.css`.
+- Aucune image en dehors de `public/produits/`, aucun domaine tiers.
+- Trois dépendances : `next`, `react`, `react-dom`. Aucune n'a été ajoutée en cours de route.
 
 > Note : Node 25.2.1 est installé sur le poste alors que STACK.md impose Node 22. Le `.nvmrc`
 > aligne le déploiement sur 22 ; installer Node 22 en local reste à faire pour être aligné des
