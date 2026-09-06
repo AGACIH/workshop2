@@ -25,17 +25,19 @@ et Confirmation.
 | | |
 | --- | --- |
 | Dépôt | https://github.com/AGACIH/workshop2 |
-| Projet Vercel | https://vercel.com/agaci-test/workshop2 |
-| Production | https://workshop2-agaci-test.vercel.app |
+| Projet Vercel | https://vercel.com/agaci-test/workshop2-lf1x |
+| **Production** | **https://workshop2-lf1x.vercel.app** |
 
-> `workshop2.vercel.app` (sans suffixe) appartient à un autre compte Vercel : ce n'est pas ce projet.
-> L'adresse de production est bien celle avec le suffixe d'équipe.
+> Le premier projet Vercel (`workshop2`) avait été importé avant que le socle Next.js n'existe :
+> il ne servait aucune page. Il a été remplacé par `workshop2-lf1x`, qui déploie correctement.
+> **Le premier projet est à supprimer** tant qu'il reste relié au dépôt, sinon chaque publication
+> déclenche deux constructions.
 >
-> **La protection de déploiement de Vercel est active** : l'adresse de production renvoie vers la
-> page de connexion Vercel. Tant qu'elle n'est pas désactivée
-> (*Settings › Deployment Protection › Vercel Authentication › Disabled*), le livrable du chapitre 11
-> du cahier — « l'adresse de production » — n'est pas consultable, et la vérification des dix photos
-> en ligne du lot 2 est impossible.
+> L'adresse publique est celle **sans suffixe d'équipe**. La variante
+> `workshop2-lf1x-agaci-test.vercel.app` reste protégée par la connexion Vercel : ne pas la
+> communiquer comme adresse de production.
+>
+> `workshop2.vercel.app` appartient à un autre compte Vercel, sans rapport avec ce projet.
 
 ## Socle installé
 
