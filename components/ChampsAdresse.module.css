@@ -1,0 +1,12 @@
+.champs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--h-e3);
+  margin-top: var(--h-e3);
+}
+
+@media (min-width: 640px) {
+  .champs {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}

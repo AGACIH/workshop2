@@ -1,0 +1,143 @@
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e3);
+}
+
+.titre {
+  font-size: var(--h-t-section);
+  font-weight: 800;
+}
+
+.numero {
+  color: var(--h-gris);
+}
+
+.numero strong {
+  color: var(--h-encre);
+}
+
+.blocs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--h-e3);
+}
+
+.bloc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e2);
+  padding: var(--h-e3);
+  background: var(--h-surface);
+  border: 1px solid var(--h-bord);
+  border-radius: var(--h-r-s);
+}
+
+.titreBloc {
+  font-size: var(--h-t-sous-titre);
+  font-weight: 800;
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e1);
+  padding-bottom: var(--h-e2);
+  border-bottom: 1px solid var(--h-bord);
+}
+
+.article {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--h-e2);
+  color: var(--h-encre);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.quantite {
+  color: var(--h-atten);
+}
+
+.montant {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.totaux {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e1);
+}
+
+.ligne {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--h-e2);
+  color: var(--h-gris);
+}
+
+.ligne dd {
+  color: var(--h-encre);
+  font-weight: 700;
+}
+
+.totalLigne {
+  margin-top: var(--h-e1);
+  padding-top: var(--h-e2);
+  border-top: 1px solid var(--h-bord);
+  color: var(--h-encre);
+  font-weight: 700;
+}
+
+.totalLigne dd {
+  font-size: var(--h-t-prix);
+  font-weight: 800;
+}
+
+.adresse {
+  color: var(--h-encre);
+  font-style: normal;
+  line-height: var(--h-inter-texte);
+}
+
+/* La phrase exigée par le cahier §5.5, en ambre : c'est une mention de démonstration. */
+.rappel {
+  padding: var(--h-e-bloc) var(--h-e3);
+  background: var(--h-ambre-fond);
+  border: 1px solid var(--h-ambre-bord);
+  border-radius: var(--h-r-s);
+  color: var(--h-encre);
+  font-weight: 600;
+}
+
+.retour {
+  display: inline-flex;
+  align-items: center;
+  height: var(--h-haut-bouton);
+  padding-inline: var(--h-e4);
+  background: var(--h-bleu);
+  border-radius: var(--h-r-s);
+  color: var(--h-surface);
+  font-weight: 800;
+  transition: background var(--h-transition), box-shadow var(--h-transition);
+}
+
+.retour:hover {
+  background: var(--h-bleu-fonce);
+  box-shadow: var(--h-ombre-bleue);
+}
+
+@media (min-width: 640px) {
+  .titre {
+    font-size: var(--h-t-titre);
+  }
+}
+
+@media (min-width: 900px) {
+  .blocs {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}

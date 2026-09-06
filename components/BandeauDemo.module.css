@@ -1,0 +1,22 @@
+.bandeau {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e1);
+  padding: var(--h-e-bloc) var(--h-e3);
+  background: var(--h-ambre-fond);
+  border: 1px solid var(--h-ambre-bord);
+  border-radius: var(--h-r-s);
+}
+
+.surtitre {
+  color: var(--h-ambre);
+  font-size: var(--h-t-etiquette);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--h-lettrage-etiquette);
+}
+
+.texte {
+  color: var(--h-encre);
+  line-height: var(--h-inter-texte);
+}

@@ -13,7 +13,38 @@
   font-weight: 800;
 }
 
-.lignes {
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-e1);
+  padding-bottom: var(--h-e2);
+  border-bottom: 1px solid var(--h-bord);
+}
+
+.article {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--h-e2);
+}
+
+.nom {
+  color: var(--h-encre);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.quantite {
+  color: var(--h-atten);
+}
+
+.montant {
+  color: var(--h-encre);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.totaux {
   display: flex;
   flex-direction: column;
   gap: var(--h-e1);
@@ -49,25 +80,7 @@
   font-weight: 800;
 }
 
-.franco {
-  padding: var(--h-e2);
-  background: var(--h-photo);
-  border-radius: var(--h-e1);
-  color: var(--h-encre);
-  font-size: var(--h-t-petit);
-  font-weight: 700;
-}
-
-.francoAtteint {
-  color: var(--h-vert);
-  font-size: var(--h-t-petit);
-  font-weight: 700;
-}
-
-.commander {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.confirmer {
   height: var(--h-haut-bouton);
   margin-top: var(--h-e1);
   background: var(--h-bleu);
@@ -77,7 +90,7 @@
   transition: background var(--h-transition), box-shadow var(--h-transition);
 }
 
-.commander:hover {
+.confirmer:hover {
   background: var(--h-bleu-fonce);
   box-shadow: var(--h-ombre-bleue);
 }

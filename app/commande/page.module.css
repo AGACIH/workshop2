@@ -1,0 +1,11 @@
+.titre {
+  margin: var(--h-e4) 0 var(--h-e3);
+  font-size: var(--h-t-section);
+  font-weight: 800;
+}
+
+@media (min-width: 640px) {
+  .titre {
+    font-size: var(--h-t-titre);
+  }
+}
