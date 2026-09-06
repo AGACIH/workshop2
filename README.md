@@ -27,13 +27,38 @@ et Confirmation.
 | Dépôt | https://github.com/AGACIH/workshop2 |
 | Production | *à renseigner au lot 2* |
 
+## Socle installé
+
+| | |
+| --- | --- |
+| Next.js | **16.3.4** (App Router, Turbopack) |
+| React | 19.2.8 |
+| TypeScript | 5, mode strict |
+| Node | `.nvmrc` fixe **22** pour le déploiement, conformément au §2 de STACK.md |
+
+Installé avec la commande du §2 de STACK.md. Elle a été exécutée dans un dossier de travail puis
+recopiée ici, parce que `create-next-app` refuse de s'installer dans un dossier contenant déjà des
+fichiers autres que `README.md`, `.gitignore` et `docs/`. Le résultat est identique.
+
+`package-lock.json` est versionné.
+
+## Commandes
+
+```bash
+npm run dev      # développement
+npm run build    # vérification technique — doit passer sans erreur
+npm run lint     # doit passer sans avertissement
+```
+
 ## État
 
 **Lot 0 terminé** : les cinq écarts entre le cahier et la maquette sont tranchés
 (voir `maquette/ECARTS.md`), le cahier est passé en version 1.1, `DESIGN.md` et `CLAUDE.md` sont
-écrits, le dépôt est ouvert.
+écrits, le dépôt est ouvert, le socle Next.js est en place et `npm run build` passe.
 
-**Prochaine étape — lot 1** : initialisation Next.js, `tokens.css`, catalogue TypeScript,
-script de contrôle, barre du haut, vitrine et filtres. Commande exacte au §2 de STACK.md.
+**Prochaine étape — lot 1** : `tokens.css`, police, photos dans `public/produits/`, catalogue
+TypeScript, script de contrôle, barre du haut, vitrine et filtres.
 
-L'application Next.js n'est pas encore initialisée. La version de Next.js installée sera notée ici.
+> Note : Node 25.2.1 est installé sur le poste alors que STACK.md impose Node 22. Le `.nvmrc`
+> aligne le déploiement sur 22 ; installer Node 22 en local reste à faire pour être aligné des
+> deux côtés.
