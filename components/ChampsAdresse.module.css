@@ -7,6 +7,6 @@
 
 @media (min-width: 640px) {
   .champs {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--h-champ-min), 1fr));
   }
 }

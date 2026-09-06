@@ -11,7 +11,7 @@
 
 .vignette {
   grid-row: span 2;
-  width: 72px;
+  width: var(--h-vignette);
   background: var(--h-photo);
   border-radius: var(--h-e1);
   overflow: hidden;
@@ -73,11 +73,11 @@
 
   .vignette {
     grid-row: auto;
-    width: 96px;
+    width: var(--h-vignette-large);
   }
 
   .total {
-    min-width: 88px;
+    min-width: var(--h-montant-min);
     text-align: right;
   }
 }

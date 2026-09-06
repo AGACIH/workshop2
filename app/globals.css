@@ -80,8 +80,8 @@ ol {
 
 /* Le focus est visible partout : ne jamais retirer ce contour sans le remplacer (DESIGN.md §8). */
 :focus-visible {
-  outline: 2px solid var(--h-bleu);
-  outline-offset: 2px;
+  outline: var(--h-focus-trait) solid var(--h-bleu);
+  outline-offset: var(--h-focus-trait);
   border-radius: var(--h-e-mini);
 }
 

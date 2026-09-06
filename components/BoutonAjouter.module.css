@@ -13,7 +13,7 @@
 
 .ajouter {
   flex: 1;
-  min-width: 210px;
+  min-width: var(--h-colonne-min);
   height: var(--h-haut-bouton);
   padding-inline: var(--h-e4);
   background: var(--h-bleu);
