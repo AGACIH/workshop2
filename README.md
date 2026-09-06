@@ -73,6 +73,10 @@ npm run build      # vérification technique — doit passer sans erreur
 `public/produits/`, le catalogue en TypeScript (prix en centimes), `lib/format.ts`, le script de
 contrôle, la barre du haut, le pied de page, la vitrine, les filtres et la recherche.
 
+**Lot 2 terminé** : la boutique est en ligne et publique. Vérifié sur l'adresse de production le
+6 septembre 2026 — **les dix photos s'affichent**, le logo et la photo du bandeau aussi (12 images
+sur 12, aucun échec), les filtres et la recherche répondent, aucun défilement latéral.
+
 **Prochaine étape — lot 3** : fiche produit et produits similaires.
 
 > Note : Node 25.2.1 est installé sur le poste alors que STACK.md impose Node 22. Le `.nvmrc`
