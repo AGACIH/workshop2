@@ -1,0 +1,42 @@
+H Store — livraison
+===================
+
+1. H Store.html
+   La boutique entière dans un seul fichier : cinq écrans, catalogue, photos et
+   police compris. Double-clic pour l'ouvrir, aucun serveur, aucune connexion.
+   Le panier est conservé par le navigateur qui ouvre le fichier.
+
+2. produits/
+   Les onze photos et le logo, en JPEG carré 640 px (hoodie-lg.jpg : 960 px pour
+   la fiche produit). Ce sont les fichiers d'origine du dossier produits/,
+   ceux que référence catalogue.json.
+
+3. source/
+   La boutique en fichiers séparés, pour reprendre le travail :
+     H Store - Boutique.dc.html  le code de la boutique (écrans, panier, règles)
+     catalogue.json              les dix produits et leurs caractéristiques
+     controle-catalogue.js       le contrôle d'intégrité du catalogue
+                                 (node controle-catalogue.js)
+     support.js                  la bibliothèque d'exécution de la page
+     produits/                   les mêmes photos, à côté du code
+   Cette version lit catalogue.json par le réseau : il faut la servir par un
+   serveur local (par exemple `npx serve`), un double-clic depuis le disque ne
+   suffit pas. Pour une démonstration hors ligne, utilisez H Store.html.
+
+4. maquettes/
+   Les trois planches fixes en 1440 px : vitrine, fiche produit, panier.
+
+Démonstration
+-------------
+Aucune commande n'est enregistrée, aucun paiement n'est demandé, et aucune page
+ne comporte de champ de carte bancaire. Le numéro de commande est tiré au hasard
+et le panier est vidé après la confirmation.
+
+Adresses internes
+-----------------
+  #/                          vitrine
+  #/produit/hoodie-atelier    fiche produit
+  #/panier                    panier
+  #/commande                  commande
+  #/confirmation              confirmation
+  #/produit/inconnu           page introuvable

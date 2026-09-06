@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bleu:#0C54E4; --bleu-fonce:#0C2484; --cyan:#3CCCFC;
+    --encre:#0B1220; --gris:#4A5566; --atten:#7A8697;
+    --bord:#E6E9EF; --fond:#F7F8FA; --surface:#FFFFFF; --photo:#F1F3F7;
+    --vert:#0E8F63; --vert-fond:#E6F4EE; --ambre:#8A5A05; --ambre-fond:#FBF1DF;
+    --rouge:#B3261E;
+    --r-s:14px; --r-l:22px; --r-pill:99px;
+    --e1:8px; --e2:12px; --e3:20px; --e4:32px; --e5:48px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--fond);overflow-x:hidden}
+  a{color:var(--bleu);text-decoration:none}
+  a:hover{color:var(--bleu-fonce)}
+  input::placeholder{color:var(--atten)}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;background:var(--fond);color:var(--encre);font-family:'Plus Jakarta Sans','Helvetica Neue',Helvetica,sans-serif;-webkit-font-smoothing:antialiased">
+
+  <header style="position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--bord)">
+    <div style="max-width:1240px;margin:0 auto;padding:var(--e2) var(--e3);display:flex;align-items:center;gap:var(--e2);flex-wrap:wrap">
+      <div onClick="{{ allerVitrine }}" style="display:flex;align-items:center;gap:10px;cursor:pointer;flex:0 0 auto">
+        <img src="produits/logo-h.png" alt="" style="width:28px;height:28px;object-fit:contain;display:block">
+        <span style="font-size:18px;font-weight:800;letter-spacing:-0.01em;color:var(--encre);white-space:nowrap">H Store</span>
+      </div>
+      <nav style="display:flex;align-items:center;gap:var(--e3);flex:0 0 auto">
+        <span onClick="{{ voirTextile }}" style="font-size:15px;font-weight:600;color:var(--gris);cursor:pointer;white-space:nowrap" style-hover="color:var(--bleu)">Textile</span>
+        <span onClick="{{ voirBureau }}" style="font-size:15px;font-weight:600;color:var(--gris);cursor:pointer;white-space:nowrap" style-hover="color:var(--bleu)">Bureau</span>
+        <span onClick="{{ voirAccessoires }}" style="font-size:15px;font-weight:600;color:var(--gris);cursor:pointer;white-space:nowrap" style-hover="color:var(--bleu)">Accessoires</span>
+      </nav>
+      <div style="flex:1 1 180px;min-width:150px;display:flex">
+        <input type="search" value="{{ q }}" onChange="{{ majRecherche }}" placeholder="Rechercher un produit" aria-label="Rechercher un produit" style="width:100%;height:44px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--fond);padding:0 14px;font-family:inherit;font-size:15px;color:var(--encre);outline:none" style-focus="border-color:var(--bleu);background:var(--surface)">
+      </div>
+      <button onClick="{{ allerPanier }}" aria-label="Voir le panier" style="flex:0 0 auto;height:44px;padding:0 16px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--surface);font-family:inherit;font-size:15px;font-weight:700;color:var(--encre);cursor:pointer;display:flex;align-items:center;gap:10px" style-hover="border-color:var(--bleu);color:var(--bleu)">Panier
+        <span style="min-width:22px;height:22px;padding:0 7px;border-radius:var(--r-pill);background:var(--bleu);color:#FFFFFF;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ nbArticles }}</span>
+      </button>
+    </div>
+  </header>
+
+  <main style="flex:1 1 auto;width:100%;max-width:1240px;margin:0 auto;padding:var(--e4) var(--e3) var(--e5)">
+
+    <sc-if value="{{ estVitrine }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <section style="border-radius:var(--r-l);background:linear-gradient(135deg,#0C2484 0%,#0C54E4 38%,#0C84FC 72%,#3CCCFC 100%);padding:var(--e4);display:flex;align-items:center;justify-content:space-between;gap:var(--e4);flex-wrap:wrap">
+          <div style="flex:1 1 320px;display:flex;flex-direction:column;align-items:flex-start;gap:10px">
+            <span style="font-size:12px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#DCE8FF;white-space:nowrap">Collection 2026</span>
+            <h1 style="margin:0;font-size:40px;font-weight:800;line-height:1.05;letter-spacing:-0.02em;color:#FFFFFF;text-wrap:pretty">À porter, à emporter.</h1>
+            <p style="margin:0;max-width:460px;font-size:16px;line-height:1.6;color:#E8F0FF;text-wrap:pretty">Dix objets dessinés autour du logo H. Petites séries, expédiées sous 48 heures depuis Lille.</p>
+            <span onClick="{{ voirTout }}" style="margin-top:var(--e1);background:#FFFFFF;color:var(--bleu);font-size:15px;font-weight:800;padding:14px 22px;border-radius:var(--r-s);cursor:pointer;white-space:nowrap" style-hover="background:#E8F0FF">Voir la collection</span>
+          </div>
+          <div style="flex:0 0 auto;width:180px;height:180px;border-radius:18px;background:#FFFFFF;overflow:hidden">
+            <img src="produits/hoodie.jpg" alt="Hoodie Atelier H" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+        </section>
+
+        <section style="margin-top:var(--e4);display:flex;align-items:center;justify-content:space-between;gap:var(--e2);flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:var(--e1);flex-wrap:wrap">
+            <sc-for list="{{ filtres }}" as="f" hint-placeholder-count="4">
+              <span>
+                <sc-if value="{{ f.actif }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ f.choisir }}" style="height:40px;padding:0 18px;border-radius:var(--r-pill);background:var(--bleu);border:1px solid var(--bleu);color:#FFFFFF;font-size:14px;font-weight:700;display:flex;align-items:center;cursor:pointer;white-space:nowrap">{{ f.etiquette }}</span>
+                </sc-if>
+                <sc-if value="{{ f.inactif }}" hint-placeholder-val="{{ true }}">
+                  <span onClick="{{ f.choisir }}" style="height:40px;padding:0 18px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--bord);color:var(--gris);font-size:14px;font-weight:600;display:flex;align-items:center;cursor:pointer;white-space:nowrap" style-hover="border-color:var(--bleu);color:var(--bleu)">{{ f.etiquette }}</span>
+                </sc-if>
+              </span>
+            </sc-for>
+          </div>
+          <span style="font-size:14px;color:var(--atten);white-space:nowrap">{{ resumeAffichage }}</span>
+        </section>
+
+        <sc-if value="{{ rechercheActive }}" hint-placeholder-val="{{ false }}">
+          <section style="margin-top:var(--e3);display:flex;align-items:center;gap:var(--e2);flex-wrap:wrap;background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:14px var(--e3)">
+            <span style="font-size:15px;color:var(--gris)">{{ resumeRecherche }}</span>
+            <span onClick="{{ effacerRecherche }}" style="font-size:14px;font-weight:700;color:var(--bleu);cursor:pointer;text-decoration:underline">Effacer la recherche</span>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{ aucunResultat }}" hint-placeholder-val="{{ false }}">
+          <section style="margin-top:var(--e4);background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-l);padding:var(--e5) var(--e4);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+            <h2 style="margin:0;font-size:24px;font-weight:800;color:var(--encre)">Aucun produit ne correspond</h2>
+            <p style="margin:0;max-width:420px;font-size:16px;line-height:1.6;color:var(--gris)">{{ texteVide }}</p>
+            <span onClick="{{ voirTout }}" style="height:48px;padding:0 24px;border-radius:var(--r-s);background:var(--bleu);color:#FFFFFF;font-size:15px;font-weight:800;display:flex;align-items:center;cursor:pointer;white-space:nowrap" style-hover="background:var(--bleu-fonce)">Voir tout le catalogue</span>
+          </section>
+        </sc-if>
+
+        <section style="margin-top:var(--e3);display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:var(--e3)">
+          <sc-for list="{{ produits }}" as="p" hint-placeholder-count="10">
+            <div onClick="{{ p.ouvrir }}" style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);overflow:hidden;cursor:pointer;box-shadow:0 1px 2px rgba(11,18,32,0.04);transition:box-shadow .18s,transform .18s" style-hover="box-shadow:0 14px 30px rgba(11,18,32,0.12);transform:translateY(-2px)">
+              <div style="position:relative;aspect-ratio:1;background:var(--photo)">
+                <img src="{{ p.photo }}" alt="{{ p.nom }}" style="width:100%;height:100%;object-fit:cover;display:block">
+                <sc-if value="{{ p.nouveau }}" hint-placeholder-val="{{ false }}">
+                  <span style="position:absolute;top:10px;left:10px;background:var(--cyan);color:#062338;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border-radius:var(--r-pill)">Nouveau</span>
+                </sc-if>
+                <sc-if value="{{ p.rupture }}" hint-placeholder-val="{{ false }}">
+                  <span style="position:absolute;bottom:10px;left:10px;right:10px;background:rgba(11,18,32,0.88);color:#FFFFFF;font-size:12px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;padding:8px 10px;border-radius:10px;text-align:center">Rupture de stock</span>
+                </sc-if>
+              </div>
+              <div style="padding:var(--e2) 14px 16px;display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--atten)">{{ p.categorieMaj }}</span>
+                <span style="font-size:17px;font-weight:700;line-height:1.3;color:var(--encre);overflow-wrap:anywhere;text-wrap:pretty">{{ p.nom }}</span>
+                <span style="font-size:17px;font-weight:800;color:var(--bleu)">{{ p.prixTexte }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ estProduit }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <nav style="display:flex;align-items:center;gap:var(--e1);flex-wrap:wrap;font-size:14px;color:var(--atten)">
+          <span onClick="{{ allerVitrine }}" style="font-weight:600;color:var(--atten);cursor:pointer" style-hover="color:var(--bleu)">Accueil</span>
+          <span>/</span>
+          <span onClick="{{ voirCategorieProduit }}" style="font-weight:600;color:var(--atten);cursor:pointer" style-hover="color:var(--bleu)">{{ produit.categorie }}</span>
+          <span>/</span>
+          <span style="font-weight:600;color:var(--gris)">{{ produit.nom }}</span>
+        </nav>
+
+        <section style="margin-top:var(--e3);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--e5);align-items:start">
+          <div style="aspect-ratio:1;border-radius:var(--r-l);background:var(--photo);overflow:hidden">
+            <img src="{{ produit.photoGrande }}" alt="{{ produit.nom }}" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+
+          <div style="display:flex;flex-direction:column;align-items:flex-start">
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--atten)">{{ produit.categorieMaj }}</span>
+            <h1 style="margin:8px 0 0;font-size:32px;font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--encre);overflow-wrap:anywhere;text-wrap:pretty">{{ produit.nom }}</h1>
+
+            <div style="margin-top:var(--e2);display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+              <span style="font-size:30px;font-weight:800;color:var(--bleu)">{{ produit.prixTexte }}</span>
+              <span style="height:28px;padding:0 12px;border-radius:var(--r-pill);background:{{ produit.stockFond }};color:{{ produit.stockEncre }};font-size:12px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center">{{ produit.stockTexte }}</span>
+            </div>
+
+            <p style="margin:var(--e3) 0 0;max-width:620px;font-size:16px;line-height:1.65;color:var(--gris);text-wrap:pretty">{{ produit.description }}</p>
+
+            <div style="margin-top:var(--e3);width:100%;max-width:620px;background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:4px var(--e3)">
+              <sc-for list="{{ produit.caracteristiques }}" as="c" hint-placeholder-count="3">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e3);padding:14px 0;border-bottom:1px solid var(--bord)">
+                  <span style="flex:0 0 auto;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--atten)">{{ c.libelle }}</span>
+                  <span style="text-align:right;font-size:15px;font-weight:600;color:var(--encre);text-wrap:pretty">{{ c.valeur }}</span>
+                </div>
+              </sc-for>
+            </div>
+
+            <sc-if value="{{ produit.disponible }}" hint-placeholder-val="{{ true }}">
+              <div style="margin-top:var(--e3);width:100%;max-width:620px;display:flex;flex-direction:column;gap:var(--e2)">
+                <div style="display:flex;align-items:center;gap:var(--e3);flex-wrap:wrap">
+                  <span style="font-size:14px;font-weight:700;color:var(--gris)">Quantité</span>
+                  <div style="display:flex;align-items:center;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--surface);height:48px">
+                    <button onClick="{{ qteMoins }}" aria-label="Diminuer la quantité" style="width:48px;height:100%;border:none;background:transparent;font-family:inherit;font-size:20px;font-weight:700;color:var(--gris);cursor:pointer" style-hover="color:var(--bleu)">−</button>
+                    <span style="width:40px;text-align:center;font-size:16px;font-weight:800;color:var(--encre)">{{ qte }}</span>
+                    <button onClick="{{ qtePlus }}" aria-label="Augmenter la quantité" style="width:48px;height:100%;border:none;background:transparent;font-family:inherit;font-size:20px;font-weight:700;color:var(--gris);cursor:pointer" style-hover="color:var(--bleu)">+</button>
+                  </div>
+                  <span style="font-size:13px;color:var(--atten)">10 articles au maximum par ligne</span>
+                </div>
+                <button onClick="{{ ajouter }}" style="width:100%;height:56px;border:none;border-radius:var(--r-s);background:var(--bleu);color:#FFFFFF;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;transition:background .18s,box-shadow .18s" style-hover="background:var(--bleu-fonce);box-shadow:0 12px 26px rgba(12,36,132,0.28)">Ajouter au panier</button>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ produit.rupture }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:var(--e3);width:100%;max-width:620px;display:flex;flex-direction:column;gap:10px">
+                <div style="width:100%;height:56px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--photo);color:var(--atten);font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center">Rupture de stock</div>
+                <span style="font-size:14px;line-height:1.6;color:var(--gris)">Cet article n'est pas commandable pour le moment. Le reste du catalogue reste disponible.</span>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ ajoutConfirme }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:14px;width:100%;max-width:620px;background:var(--vert-fond);border:1px solid #BFE3D3;border-radius:var(--r-s);padding:14px var(--e3);display:flex;align-items:center;justify-content:space-between;gap:var(--e2);flex-wrap:wrap">
+                <span style="font-size:15px;font-weight:700;color:var(--vert)">{{ ajoutConfirme }}</span>
+                <span onClick="{{ allerPanier }}" style="font-size:14px;font-weight:800;color:var(--bleu);cursor:pointer;text-decoration:underline">Voir le panier</span>
+              </div>
+            </sc-if>
+
+            <span onClick="{{ allerVitrine }}" style="margin-top:var(--e3);font-size:15px;font-weight:700;color:var(--bleu);cursor:pointer">← Retour à la boutique</span>
+          </div>
+        </section>
+
+        <section style="margin-top:var(--e5)">
+          <h2 style="margin:0 0 var(--e3);font-size:22px;font-weight:800;letter-spacing:-0.01em;color:var(--encre)">Vous aimerez aussi</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:var(--e3)">
+            <sc-for list="{{ similaires }}" as="s" hint-placeholder-count="4">
+              <div onClick="{{ s.ouvrir }}" style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);overflow:hidden;cursor:pointer;box-shadow:0 1px 2px rgba(11,18,32,0.04);transition:box-shadow .18s,transform .18s" style-hover="box-shadow:0 14px 30px rgba(11,18,32,0.12);transform:translateY(-2px)">
+                <div style="position:relative;aspect-ratio:1;background:var(--photo)">
+                  <img src="{{ s.photo }}" alt="{{ s.nom }}" style="width:100%;height:100%;object-fit:cover;display:block">
+                  <sc-if value="{{ s.rupture }}" hint-placeholder-val="{{ false }}">
+                    <span style="position:absolute;bottom:10px;left:10px;right:10px;background:rgba(11,18,32,0.88);color:#FFFFFF;font-size:12px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;padding:8px 10px;border-radius:10px;text-align:center">Rupture de stock</span>
+                  </sc-if>
+                </div>
+                <div style="padding:var(--e2) 14px 16px;display:flex;flex-direction:column;gap:4px">
+                  <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--atten)">{{ s.categorieMaj }}</span>
+                  <span style="font-size:17px;font-weight:700;line-height:1.3;color:var(--encre);overflow-wrap:anywhere">{{ s.nom }}</span>
+                  <span style="font-size:17px;font-weight:800;color:var(--bleu)">{{ s.prixTexte }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ estPanier }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+          <h1 style="margin:0;font-size:32px;font-weight:800;letter-spacing:-0.02em;color:var(--encre)">Panier</h1>
+          <span style="font-size:15px;color:var(--atten)">{{ resumePanier }}</span>
+        </div>
+
+        <sc-if value="{{ panierVide }}" hint-placeholder-val="{{ false }}">
+          <section style="margin-top:var(--e4);background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-l);padding:var(--e5) var(--e4);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+            <h2 style="margin:0;font-size:24px;font-weight:800;color:var(--encre)">Votre panier est vide</h2>
+            <p style="margin:0;max-width:420px;font-size:16px;line-height:1.6;color:var(--gris)">Ajoutez un article depuis la boutique : il restera dans ce panier même si vous fermez l'onglet.</p>
+            <span onClick="{{ voirTout }}" style="height:48px;padding:0 24px;border-radius:var(--r-s);background:var(--bleu);color:#FFFFFF;font-size:15px;font-weight:800;display:flex;align-items:center;cursor:pointer;white-space:nowrap" style-hover="background:var(--bleu-fonce)">Découvrir la boutique</span>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{ panierRempli }}" hint-placeholder-val="{{ true }}">
+          <section style="margin-top:var(--e3);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--e4);align-items:start">
+            <div style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:4px var(--e3);box-shadow:0 1px 2px rgba(11,18,32,0.04)">
+              <sc-for list="{{ lignes }}" as="l" hint-placeholder-count="2">
+                <div style="display:flex;align-items:center;gap:var(--e3);flex-wrap:wrap;padding:var(--e3) 0;border-bottom:1px solid var(--bord)">
+                  <div onClick="{{ l.ouvrir }}" style="flex:0 0 auto;width:88px;height:88px;border-radius:10px;background:var(--photo);overflow:hidden;cursor:pointer">
+                    <img src="{{ l.photo }}" alt="{{ l.nom }}" style="width:100%;height:100%;object-fit:cover;display:block">
+                  </div>
+                  <div style="flex:1 1 160px;min-width:0;display:flex;flex-direction:column;gap:4px">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--atten)">{{ l.categorieMaj }}</span>
+                    <span onClick="{{ l.ouvrir }}" style="font-size:17px;font-weight:700;color:var(--encre);cursor:pointer;overflow-wrap:anywhere;text-wrap:pretty">{{ l.nom }}</span>
+                    <span style="font-size:14px;color:var(--gris)">{{ l.prixUnitaireTexte }} l'unité</span>
+                  </div>
+                  <div style="flex:0 0 auto;display:flex;align-items:center;border:1px solid var(--bord);border-radius:var(--r-s);height:44px">
+                    <button onClick="{{ l.moins }}" aria-label="Diminuer la quantité" style="width:44px;height:100%;border:none;background:transparent;font-family:inherit;font-size:18px;font-weight:700;color:var(--gris);cursor:pointer" style-hover="color:var(--bleu)">−</button>
+                    <span style="width:34px;text-align:center;font-size:15px;font-weight:800;color:var(--encre)">{{ l.quantite }}</span>
+                    <button onClick="{{ l.plus }}" aria-label="Augmenter la quantité" style="width:44px;height:100%;border:none;background:transparent;font-family:inherit;font-size:18px;font-weight:700;color:var(--gris);cursor:pointer" style-hover="color:var(--bleu)">+</button>
+                  </div>
+                  <span style="flex:0 0 auto;min-width:88px;text-align:right;font-size:17px;font-weight:800;color:var(--bleu)">{{ l.totalTexte }}</span>
+                  <button onClick="{{ l.retirer }}" style="flex:0 0 auto;border:none;background:transparent;font-family:inherit;font-size:13px;font-weight:700;color:var(--atten);cursor:pointer;padding:10px 2px" style-hover="color:var(--rouge)">Retirer</button>
+                </div>
+              </sc-for>
+              <div style="padding:var(--e3) 0">
+                <span onClick="{{ voirTout }}" style="font-size:15px;font-weight:700;color:var(--bleu);cursor:pointer">← Continuer mes achats</span>
+              </div>
+            </div>
+
+            <div style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:var(--e3);box-shadow:0 1px 2px rgba(11,18,32,0.04);display:flex;flex-direction:column">
+              <h2 style="margin:0 0 4px;font-size:22px;font-weight:800;letter-spacing:-0.01em;color:var(--encre)">Récapitulatif</h2>
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:14px 0;border-bottom:1px solid var(--bord)">
+                <span style="font-size:15px;color:var(--gris)">Sous-total</span>
+                <span style="font-size:17px;font-weight:700;color:var(--encre)">{{ sousTotalTexte }}</span>
+              </div>
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:14px 0;border-bottom:1px solid var(--bord)">
+                <span style="font-size:15px;color:var(--gris)">Livraison</span>
+                <span style="font-size:17px;font-weight:700;color:{{ livraisonEncre }}">{{ livraisonTexte }}</span>
+              </div>
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:18px 0">
+                <span style="font-size:15px;font-weight:700;color:var(--encre)">Total</span>
+                <span style="font-size:24px;font-weight:800;color:var(--bleu)">{{ totalTexte }}</span>
+              </div>
+              <sc-if value="{{ messageFranco }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-bottom:var(--e2);background:var(--fond);border:1px solid var(--bord);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.5;color:var(--gris)">{{ messageFranco }}</div>
+              </sc-if>
+              <button onClick="{{ allerCommande }}" style="width:100%;height:56px;border:none;border-radius:var(--r-s);background:var(--bleu);color:#FFFFFF;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;transition:background .18s,box-shadow .18s" style-hover="background:var(--bleu-fonce);box-shadow:0 12px 26px rgba(12,36,132,0.28)">Passer commande</button>
+              <span style="margin-top:14px;font-size:13px;line-height:1.6;color:var(--atten)">Ce panier est conservé dans ce navigateur, sur cet appareil. Il ne suit pas d'un téléphone à un ordinateur et disparaît si vous effacez vos données de navigation.</span>
+            </div>
+          </section>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ estCommande }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div role="note" style="background:var(--ambre-fond);border:1px solid #EBD9B4;border-radius:var(--r-s);padding:16px var(--e3);display:flex;flex-direction:column;gap:4px">
+          <span style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--ambre)">Démonstration</span>
+          <span style="font-size:15px;line-height:1.6;color:var(--encre);text-wrap:pretty">Aucune commande n'est enregistrée et aucun paiement n'est demandé. Cette page ne comporte volontairement aucun champ de carte bancaire — n'entrez pas d'informations réelles.</span>
+        </div>
+
+        <h1 style="margin:var(--e4) 0 0;font-size:32px;font-weight:800;letter-spacing:-0.02em;color:var(--encre)">Commande</h1>
+
+        <section style="margin-top:var(--e3);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--e4);align-items:start">
+          <div style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:var(--e3);box-shadow:0 1px 2px rgba(11,18,32,0.04)">
+            <h2 style="margin:0 0 var(--e3);font-size:20px;font-weight:800;color:var(--encre)">Adresse de livraison</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--e3)">
+
+              <label style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:13px;font-weight:700;color:var(--gris)">Prénom *</span>
+                <input value="{{ form.prenom }}" onChange="{{ majPrenom }}" style="height:48px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--fond);padding:0 14px;font-family:inherit;font-size:15px;color:var(--encre);outline:none" style-focus="border-color:var(--bleu);background:var(--surface)">
+                <sc-if value="{{ err.prenom }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:var(--rouge)">{{ err.prenom }}</span></sc-if>
+              </label>
+
+              <label style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:13px;font-weight:700;color:var(--gris)">Nom *</span>
+                <input value="{{ form.nom }}" onChange="{{ majNom }}" style="height:48px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--fond);padding:0 14px;font-family:inherit;font-size:15px;color:var(--encre);outline:none" style-focus="border-color:var(--bleu);background:var(--surface)">
+                <sc-if value="{{ err.nom }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:var(--rouge)">{{ err.nom }}</span></sc-if>
+              </label>
+
+              <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:13px;font-weight:700;color:var(--gris)">Email *</span>
+                <input type="email" value="{{ form.email }}" onChange="{{ majEmail }}" placeholder="prenom@exemple.fr" style="height:48px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--fond);padding:0 14px;font-family:inherit;font-size:15px;color:var(--encre);outline:none" style-focus="border-color:var(--bleu);background:var(--surface)">
+                <sc-if value="{{ err.email }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:var(--rouge)">{{ err.email }}</span></sc-if>
+              </label>
+
+              <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:13px;font-weight:700;color:var(--gris)">Adresse *</span>
+                <input value="{{ form.adresse }}" onChange="{{ majAdresse }}" style="height:48px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--fond);padding:0 14px;font-family:inherit;font-size:15px;color:var(--encre);outline:none" style-focus="border-color:var(--bleu);background:var(--surface)">
+                <sc-if value="{{ err.adresse }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:var(--rouge)">{{ err.adresse }}</span></sc-if>
+              </label>
+
+              <label style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:13px;font-weight:700;color:var(--gris)">Code postal *</span>
+                <input inputMode="numeric" value="{{ form.cp }}" onChange="{{ majCp }}" placeholder="59000" style="height:48px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--fond);padding:0 14px;font-family:inherit;font-size:15px;color:var(--encre);outline:none" style-focus="border-color:var(--bleu);background:var(--surface)">
+                <sc-if value="{{ err.cp }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:var(--rouge)">{{ err.cp }}</span></sc-if>
+              </label>
+
+              <label style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:13px;font-weight:700;color:var(--gris)">Ville *</span>
+                <input value="{{ form.ville }}" onChange="{{ majVille }}" style="height:48px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--fond);padding:0 14px;font-family:inherit;font-size:15px;color:var(--encre);outline:none" style-focus="border-color:var(--bleu);background:var(--surface)">
+                <sc-if value="{{ err.ville }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:var(--rouge)">{{ err.ville }}</span></sc-if>
+              </label>
+
+              <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:13px;font-weight:700;color:var(--gris)">Pays *</span>
+                <input value="{{ form.pays }}" onChange="{{ majPays }}" style="height:48px;border:1px solid var(--bord);border-radius:var(--r-s);background:var(--fond);padding:0 14px;font-family:inherit;font-size:15px;color:var(--encre);outline:none" style-focus="border-color:var(--bleu);background:var(--surface)">
+                <sc-if value="{{ err.pays }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:var(--rouge)">{{ err.pays }}</span></sc-if>
+              </label>
+            </div>
+            <span style="display:block;margin-top:var(--e3);font-size:13px;color:var(--atten)">Les champs marqués d'une étoile sont obligatoires.</span>
+          </div>
+
+          <div style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:var(--e3);box-shadow:0 1px 2px rgba(11,18,32,0.04);display:flex;flex-direction:column">
+            <h2 style="margin:0 0 var(--e2);font-size:20px;font-weight:800;color:var(--encre)">Votre commande</h2>
+            <sc-for list="{{ lignes }}" as="l" hint-placeholder-count="2">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:12px 0;border-bottom:1px solid var(--bord)">
+                <span style="font-size:15px;color:var(--gris);overflow-wrap:anywhere">{{ l.resume }}</span>
+                <span style="flex:0 0 auto;font-size:15px;font-weight:700;color:var(--encre)">{{ l.totalTexte }}</span>
+              </div>
+            </sc-for>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:14px 0 0">
+              <span style="font-size:15px;color:var(--gris)">Sous-total</span>
+              <span style="font-size:16px;font-weight:700;color:var(--encre)">{{ sousTotalTexte }}</span>
+            </div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:12px 0;border-bottom:1px solid var(--bord)">
+              <span style="font-size:15px;color:var(--gris)">Livraison</span>
+              <span style="font-size:16px;font-weight:700;color:{{ livraisonEncre }}">{{ livraisonTexte }}</span>
+            </div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:18px 0">
+              <span style="font-size:15px;font-weight:700;color:var(--encre)">Total</span>
+              <span style="font-size:24px;font-weight:800;color:var(--bleu)">{{ totalTexte }}</span>
+            </div>
+            <button onClick="{{ confirmer }}" style="width:100%;height:56px;border:none;border-radius:var(--r-s);background:var(--bleu);color:#FFFFFF;font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;transition:background .18s,box-shadow .18s" style-hover="background:var(--bleu-fonce);box-shadow:0 12px 26px rgba(12,36,132,0.28)">Confirmer la commande</button>
+            <sc-if value="{{ erreurGlobale }}" hint-placeholder-val="{{ false }}">
+              <span style="margin-top:var(--e2);font-size:14px;font-weight:700;line-height:1.5;color:var(--rouge)">{{ erreurGlobale }}</span>
+            </sc-if>
+            <span onClick="{{ allerPanier }}" style="margin-top:var(--e3);font-size:15px;font-weight:700;color:var(--bleu);cursor:pointer">← Revenir au panier</span>
+          </div>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ estConfirmation }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div role="note" style="background:var(--ambre-fond);border:1px solid #EBD9B4;border-radius:var(--r-s);padding:16px var(--e3);display:flex;flex-direction:column;gap:4px">
+          <span style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--ambre)">Démonstration</span>
+          <span style="font-size:15px;line-height:1.6;color:var(--encre);text-wrap:pretty">Ceci est une démonstration. Aucune commande n'a été enregistrée et aucun paiement n'a été demandé.</span>
+        </div>
+
+        <sc-if value="{{ commande }}" hint-placeholder-val="{{ true }}">
+          <section style="margin-top:var(--e4);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--e4);align-items:start">
+            <div style="display:flex;flex-direction:column;align-items:flex-start;gap:var(--e2)">
+              <span style="height:32px;padding:0 14px;border-radius:var(--r-pill);background:var(--vert-fond);color:var(--vert);font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;display:flex;align-items:center">Commande enregistrée pour la démonstration</span>
+              <h1 style="margin:0;font-size:32px;font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--encre)">Merci, {{ commande.prenom }}.</h1>
+              <p style="margin:0;max-width:520px;font-size:16px;line-height:1.65;color:var(--gris);text-wrap:pretty">Votre panier a été vidé et le numéro ci-dessous a été tiré au hasard pour l'exemple. Aucun email ne vous sera envoyé.</p>
+              <div style="margin-top:var(--e1);background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:16px var(--e3)">
+                <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--atten)">Numéro de commande</span>
+                <span style="display:block;margin-top:6px;font-size:24px;font-weight:800;letter-spacing:0.02em;color:var(--bleu)">{{ commande.numero }}</span>
+              </div>
+              <div style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:16px var(--e3);max-width:520px">
+                <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--atten)">Adresse de livraison</span>
+                <span style="display:block;margin-top:6px;font-size:15px;line-height:1.6;color:var(--encre)">{{ commande.adresse }}</span>
+              </div>
+              <span onClick="{{ voirTout }}" style="margin-top:var(--e1);height:52px;padding:0 24px;border-radius:var(--r-s);background:var(--bleu);color:#FFFFFF;font-size:16px;font-weight:800;display:flex;align-items:center;cursor:pointer;white-space:nowrap" style-hover="background:var(--bleu-fonce)">Retourner à la boutique</span>
+            </div>
+
+            <div style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-s);padding:var(--e3);box-shadow:0 1px 2px rgba(11,18,32,0.04)">
+              <h2 style="margin:0 0 var(--e2);font-size:20px;font-weight:800;color:var(--encre)">Récapitulatif</h2>
+              <sc-for list="{{ commande.lignes }}" as="l" hint-placeholder-count="2">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:12px 0;border-bottom:1px solid var(--bord)">
+                  <span style="font-size:15px;color:var(--gris);overflow-wrap:anywhere">{{ l.resume }}</span>
+                  <span style="flex:0 0 auto;font-size:15px;font-weight:700;color:var(--encre)">{{ l.totalTexte }}</span>
+                </div>
+              </sc-for>
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:14px 0 0">
+                <span style="font-size:15px;color:var(--gris)">Sous-total</span>
+                <span style="font-size:16px;font-weight:700;color:var(--encre)">{{ commande.sousTotalTexte }}</span>
+              </div>
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:12px 0;border-bottom:1px solid var(--bord)">
+                <span style="font-size:15px;color:var(--gris)">Livraison</span>
+                <span style="font-size:16px;font-weight:700;color:var(--encre)">{{ commande.livraisonTexte }}</span>
+              </div>
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--e2);padding:18px 0 0">
+                <span style="font-size:15px;font-weight:700;color:var(--encre)">Total</span>
+                <span style="font-size:24px;font-weight:800;color:var(--bleu)">{{ commande.totalTexte }}</span>
+              </div>
+            </div>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{ sansCommande }}" hint-placeholder-val="{{ false }}">
+          <section style="margin-top:var(--e4);background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-l);padding:var(--e5) var(--e4);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+            <h1 style="margin:0;font-size:24px;font-weight:800;color:var(--encre)">Aucune commande à afficher</h1>
+            <p style="margin:0;max-width:420px;font-size:16px;line-height:1.6;color:var(--gris)">Cette page s'affiche après avoir confirmé une commande de démonstration.</p>
+            <span onClick="{{ voirTout }}" style="height:48px;padding:0 24px;border-radius:var(--r-s);background:var(--bleu);color:#FFFFFF;font-size:15px;font-weight:800;display:flex;align-items:center;cursor:pointer;white-space:nowrap" style-hover="background:var(--bleu-fonce)">Retourner à la boutique</span>
+          </section>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ estIntrouvable }}" hint-placeholder-val="{{ false }}">
+      <section style="background:var(--surface);border:1px solid var(--bord);border-radius:var(--r-l);padding:var(--e5) var(--e4);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+        <span style="font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--atten)">Page introuvable</span>
+        <h1 style="margin:0;font-size:28px;font-weight:800;letter-spacing:-0.02em;color:var(--encre);text-wrap:pretty">Cette page n'existe pas ou plus</h1>
+        <p style="margin:0;max-width:440px;font-size:16px;line-height:1.6;color:var(--gris);text-wrap:pretty">Le produit demandé n'est pas au catalogue. Les dix articles de la collection sont sur la page boutique.</p>
+        <span onClick="{{ voirTout }}" style="height:48px;padding:0 24px;border-radius:var(--r-s);background:var(--bleu);color:#FFFFFF;font-size:15px;font-weight:800;display:flex;align-items:center;cursor:pointer;white-space:nowrap" style-hover="background:var(--bleu-fonce)">Retourner à la boutique</span>
+      </section>
+    </sc-if>
+
+  </main>
+
+  <footer style="background:var(--surface);border-top:1px solid var(--bord)">
+    <div style="max-width:1240px;margin:0 auto;padding:var(--e3);display:flex;align-items:center;justify-content:space-between;gap:var(--e2);flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:13px;color:var(--atten)">© 2026 H Store — 12 rue des Arts, 59000 Lille</span>
+        <span style="font-size:13px;font-weight:700;color:var(--ambre)">Démonstration : aucune commande n'est enregistrée, aucun paiement n'est demandé.</span>
+      </div>
+      <nav style="display:flex;align-items:center;gap:var(--e3);flex-wrap:wrap">
+        <a href="#/" style="font-size:13px;font-weight:600;color:var(--gris)">Livraison</a>
+        <a href="#/" style="font-size:13px;font-weight:600;color:var(--gris)">Retours</a>
+        <a href="#/" style="font-size:13px;font-weight:600;color:var(--gris)">Contact</a>
+        <a href="#/" style="font-size:13px;font-weight:600;color:var(--gris)">Mentions légales</a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;vueDepart&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Vitrine&quot;,&quot;Panier&quot;,&quot;Commande&quot;,&quot;Page introuvable&quot;],&quot;default&quot;:&quot;Vitrine&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Démonstration&quot;},&quot;seuilFranco&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50,&quot;min&quot;:0,&quot;max&quot;:150,&quot;unit&quot;:&quot;€&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Règles de gestion&quot;},&quot;fraisLivraison&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:4.9,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;€&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Règles de gestion&quot;}}">
+const CLE = 'h-store-panier';
+const RES = () => (typeof window !== 'undefined' && window.__resources) || null;
+const img = (chemin) => {
+  const r = RES();
+  if (!r) return chemin;
+  const base = String(chemin).split('/').pop().replace(/\.[a-z0-9]+$/i, '');
+  return r['img_' + base] || chemin;
+};
+const CATS = ['Tout', 'Textile', 'Bureau', 'Accessoires'];
+const LIB = ['Matière', 'Dimensions', 'Couleur'];
+
+const sansAccent = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const eur = (n) => n.toFixed(2).replace('.', ',') + '\u00a0€';
+
+class Component extends DCLogic {
+  state = {
+    cat: [], pret: false, erreurCat: false,
+    route: { n: 'vitrine' }, filtre: 'Tout', q: '',
+    panier: [], qte: 1, ajout: '',
+    form: { prenom: '', nom: '', email: '', adresse: '', cp: '', ville: '', pays: 'France' },
+    err: {}, erreurGlobale: '', commande: null
+  };
+
+  componentDidMount() {
+    const res = RES();
+    fetch((res && res.catalogue) || './catalogue.json')
+      .then((r) => r.json())
+      .then((d) => {
+        const cat = (Array.isArray(d.produits) ? d.produits : []).map((p) => Object.assign({}, p, { photo: img(p.photo) }));
+        this.setState({ cat, pret: true });
+      })
+      .catch(() => this.setState({ pret: true, erreurCat: true }));
+
+    let lignes = [];
+    try {
+      const brut = JSON.parse(window.localStorage.getItem(CLE) || '[]');
+      if (Array.isArray(brut)) {
+        lignes = brut
+          .filter((l) => l && typeof l.produitId === 'string' && Number(l.quantite) > 0)
+          .map((l) => ({ produitId: l.produitId, quantite: Math.min(10, Math.max(1, Math.round(Number(l.quantite)))) }));
+      }
+    } catch (e) { lignes = []; }
+
+    const depart = this.props.vueDepart || 'Vitrine';
+    if (!window.location.hash && depart !== 'Vitrine') {
+      const map = { Panier: '#/panier', Commande: '#/commande', 'Page introuvable': '#/inconnu' };
+      if (map[depart]) window.location.hash = map[depart];
+    }
+
+    this.onHash = () => this.setState({ route: this.lireRoute(), ajout: '' });
+    window.addEventListener('hashchange', this.onHash);
+    this.setState({ panier: lignes, route: this.lireRoute() });
+  }
+
+  componentWillUnmount() { window.removeEventListener('hashchange', this.onHash); }
+
+  lireRoute() {
+    const h = String(window.location.hash || '').replace(/^#\/?/, '').replace(/\/$/, '');
+    if (!h) return { n: 'vitrine' };
+    if (h === 'panier') return { n: 'panier' };
+    if (h === 'commande') return { n: 'commande' };
+    if (h === 'confirmation') return { n: 'confirmation' };
+    const m = h.match(/^produit\/(.+)$/);
+    if (m) return { n: 'produit', id: decodeURIComponent(m[1]) };
+    return { n: 'introuvable' };
+  }
+
+  aller(hash) {
+    if (window.location.hash === hash) this.setState({ route: this.lireRoute(), ajout: '' });
+    else window.location.hash = hash;
+    if (typeof window.scrollTo === 'function') window.scrollTo(0, 0);
+  }
+
+  sauver(panier) {
+    this.setState({ panier });
+    try { window.localStorage.setItem(CLE, JSON.stringify(panier)); } catch (e) { /* stockage indisponible */ }
+  }
+
+  majQuantite(id, quantite) {
+    const q = Math.round(Number(quantite) || 0);
+    if (q <= 0) return this.sauver(this.state.panier.filter((l) => l.produitId !== id));
+    this.sauver(this.state.panier.map((l) => (l.produitId === id ? { produitId: id, quantite: Math.min(10, q) } : l)));
+  }
+
+  ajouterAuPanier(produit, qte) {
+    if (!produit || produit.enStock === false) return;
+    const existe = this.state.panier.find((l) => l.produitId === produit.id);
+    const panier = existe
+      ? this.state.panier.map((l) => (l.produitId === produit.id ? { produitId: l.produitId, quantite: Math.min(10, l.quantite + qte) } : l))
+      : this.state.panier.concat([{ produitId: produit.id, quantite: Math.min(10, qte) }]);
+    this.sauver(panier);
+    const total = (panier.find((l) => l.produitId === produit.id) || {}).quantite;
+    this.setState({ ajout: 'Ajouté au panier — ' + total + (total > 1 ? ' articles' : ' article') + ' de cet article.', qte: 1 });
+  }
+
+  lignesPanier() {
+    return this.state.panier
+      .map((l) => {
+        const p = this.state.cat.find((x) => x.id === l.produitId);
+        return p ? { p, quantite: l.quantite } : null;
+      })
+      .filter(Boolean);
+  }
+
+  valider() {
+    const f = this.state.form;
+    const err = {};
+    const requis = { prenom: 'Prénom', nom: 'Nom', adresse: 'Adresse', ville: 'Ville', pays: 'Pays' };
+    Object.keys(requis).forEach((k) => { if (!String(f[k] || '').trim()) err[k] = 'Ce champ est obligatoire.'; });
+    if (!String(f.email || '').trim()) err.email = 'Ce champ est obligatoire.';
+    else if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(f.email.trim())) err.email = 'Adresse email invalide, par exemple prenom@exemple.fr';
+    if (!String(f.cp || '').trim()) err.cp = 'Ce champ est obligatoire.';
+    else if (!/^\d{5}$/.test(f.cp.trim())) err.cp = 'Le code postal doit contenir cinq chiffres.';
+    return err;
+  }
+
+  confirmerCommande() {
+    const lignes = this.lignesPanier();
+    if (!lignes.length) {
+      this.setState({ erreurGlobale: 'Votre panier est vide : ajoutez un article avant de commander.' });
+      return;
+    }
+    const err = this.valider();
+    if (Object.keys(err).length) {
+      this.setState({ err, erreurGlobale: 'La commande n\u2019a pas été envoyée : corrigez les champs signalés.' });
+      return;
+    }
+    const f = this.state.form;
+    const seuil = Number(this.props.seuilFranco ?? 50);
+    const frais = Number(this.props.fraisLivraison ?? 4.9);
+    const sousTotal = lignes.reduce((s, l) => s + l.p.prix * l.quantite, 0);
+    const livraison = sousTotal >= seuil ? 0 : frais;
+    const commande = {
+      numero: 'H-2026-' + String(1000 + Math.floor(Math.random() * 9000)),
+      prenom: f.prenom.trim(),
+      adresse: [f.prenom.trim() + ' ' + f.nom.trim(), f.adresse.trim(), f.cp.trim() + ' ' + f.ville.trim(), f.pays.trim()].join(' · '),
+      lignes: lignes.map((l) => ({ resume: l.p.nom + ' × ' + l.quantite, totalTexte: eur(l.p.prix * l.quantite) })),
+      sousTotalTexte: eur(sousTotal),
+      livraisonTexte: livraison === 0 ? 'Offerte' : eur(livraison),
+      totalTexte: eur(sousTotal + livraison)
+    };
+    try { window.localStorage.removeItem(CLE); } catch (e) { /* stockage indisponible */ }
+    this.setState({ panier: [], commande, err: {}, erreurGlobale: '' });
+    this.aller('#/confirmation');
+  }
+
+  carte(p) {
+    return {
+      id: p.id,
+      nom: p.nom,
+      photo: p.photo,
+      categorieMaj: p.categorie,
+      prixTexte: eur(p.prix),
+      nouveau: p.nouveaute === true,
+      rupture: p.enStock === false,
+      ouvrir: () => { this.setState({ qte: 1, ajout: '' }); this.aller('#/produit/' + p.id); }
+    };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const route = s.route || { n: 'vitrine' };
+    const seuil = Number(this.props.seuilFranco ?? 50);
+    const frais = Number(this.props.fraisLivraison ?? 4.9);
+
+    const q = s.q.trim();
+    const cible = sansAccent(q);
+    const parRecherche = q
+      ? s.cat.filter((p) => sansAccent(p.nom + ' ' + p.categorie + ' ' + p.description).includes(cible))
+      : s.cat;
+    const affiches = s.filtre === 'Tout' ? parRecherche : parRecherche.filter((p) => p.categorie === s.filtre);
+
+    const filtres = CATS.map((c) => {
+      const n = c === 'Tout' ? parRecherche.length : parRecherche.filter((p) => p.categorie === c).length;
+      return {
+        etiquette: c + ' · ' + n,
+        actif: s.filtre === c,
+        inactif: s.filtre !== c,
+        choisir: () => this.setState({ filtre: c })
+      };
+    });
+
+    const lignesBrutes = this.lignesPanier();
+    const sousTotal = lignesBrutes.reduce((t, l) => t + l.p.prix * l.quantite, 0);
+    const franco = sousTotal >= seuil;
+    const livraison = franco ? 0 : frais;
+    const nbArticles = lignesBrutes.reduce((t, l) => t + l.quantite, 0);
+
+    const lignes = lignesBrutes.map((l) => ({
+      nom: l.p.nom,
+      photo: l.p.photo,
+      categorieMaj: l.p.categorie,
+      quantite: l.quantite,
+      prixUnitaireTexte: eur(l.p.prix),
+      totalTexte: eur(l.p.prix * l.quantite),
+      resume: l.p.nom + ' × ' + l.quantite,
+      moins: () => this.majQuantite(l.p.id, l.quantite - 1),
+      plus: () => this.majQuantite(l.p.id, Math.min(10, l.quantite + 1)),
+      retirer: () => this.majQuantite(l.p.id, 0),
+      ouvrir: () => this.aller('#/produit/' + l.p.id)
+    }));
+
+    const trouve = route.n === 'produit' ? s.cat.find((p) => p.id === route.id) : null;
+    const estProduit = route.n === 'produit' && !!trouve;
+    const produit = trouve
+      ? {
+          nom: trouve.nom,
+          categorie: trouve.categorie,
+          categorieMaj: trouve.categorie,
+          description: trouve.description,
+          prixTexte: eur(trouve.prix),
+          photoGrande: trouve.id === 'hoodie-atelier' ? img('produits/hoodie-lg.jpg') : trouve.photo,
+          disponible: trouve.enStock !== false,
+          rupture: trouve.enStock === false,
+          stockTexte: trouve.enStock === false ? 'Rupture de stock' : 'En stock',
+          stockFond: trouve.enStock === false ? 'var(--photo)' : 'var(--vert-fond)',
+          stockEncre: trouve.enStock === false ? 'var(--atten)' : 'var(--vert)',
+          caracteristiques: (trouve.caracteristiques || []).map((v, i) => ({ libelle: LIB[i] || 'Détail', valeur: v }))
+        }
+      : null;
+
+    const similaires = trouve
+      ? s.cat
+          .filter((p) => p.id !== trouve.id)
+          .sort((a, b) => (a.categorie === trouve.categorie ? 0 : 1) - (b.categorie === trouve.categorie ? 0 : 1))
+          .slice(0, 4)
+          .map((p) => this.carte(p))
+      : [];
+
+    return {
+      nbArticles,
+      q: s.q,
+      majRecherche: (e) => this.setState({ q: e.target.value }),
+      effacerRecherche: () => this.setState({ q: '' }),
+      allerVitrine: () => { this.setState({ filtre: 'Tout' }); this.aller('#/'); },
+      voirTout: () => { this.setState({ filtre: 'Tout', q: '' }); this.aller('#/'); },
+      voirTextile: () => { this.setState({ filtre: 'Textile' }); this.aller('#/'); },
+      voirBureau: () => { this.setState({ filtre: 'Bureau' }); this.aller('#/'); },
+      voirAccessoires: () => { this.setState({ filtre: 'Accessoires' }); this.aller('#/'); },
+      allerPanier: () => this.aller('#/panier'),
+      allerCommande: () => this.aller('#/commande'),
+
+      estVitrine: route.n === 'vitrine',
+      estProduit,
+      estPanier: route.n === 'panier',
+      estCommande: route.n === 'commande',
+      estConfirmation: route.n === 'confirmation',
+      estIntrouvable: route.n === 'introuvable' || (route.n === 'produit' && s.pret && !trouve),
+
+      filtres,
+      produits: affiches.map((p) => this.carte(p)),
+      resumeAffichage: s.pret ? affiches.length + (affiches.length > 1 ? ' produits affichés' : ' produit affiché') : 'Chargement du catalogue…',
+      rechercheActive: q.length > 0,
+      resumeRecherche: affiches.length
+        ? affiches.length + (affiches.length > 1 ? ' résultats pour « ' : ' résultat pour « ') + q + ' »'
+        : 'Aucun résultat pour « ' + q + ' »',
+      aucunResultat: s.pret && affiches.length === 0,
+      texteVide: q
+        ? 'Aucun article ne correspond à « ' + q + ' » dans cette catégorie. Effacez la recherche ou changez de filtre.'
+        : 'Cette catégorie est vide pour le moment.',
+
+      produit,
+      similaires,
+      qte: s.qte,
+      qteMoins: () => this.setState({ qte: Math.max(1, s.qte - 1) }),
+      qtePlus: () => this.setState({ qte: Math.min(10, s.qte + 1) }),
+      ajouter: () => this.ajouterAuPanier(trouve, s.qte),
+      ajoutConfirme: s.ajout,
+      voirCategorieProduit: () => { this.setState({ filtre: trouve ? trouve.categorie : 'Tout', q: '' }); this.aller('#/'); },
+
+      lignes,
+      resumePanier: lignes.length
+        ? lignes.length + (lignes.length > 1 ? ' produits · ' : ' produit · ') + nbArticles + (nbArticles > 1 ? ' articles' : ' article')
+        : 'Aucun article',
+      panierVide: lignes.length === 0,
+      panierRempli: lignes.length > 0,
+      sousTotalTexte: eur(sousTotal),
+      livraisonTexte: franco ? 'Offerte' : eur(livraison),
+      livraisonEncre: franco ? 'var(--vert)' : 'var(--encre)',
+      totalTexte: eur(sousTotal + livraison),
+      messageFranco: franco ? '' : 'Plus que ' + eur(seuil - sousTotal) + ' pour la livraison offerte.',
+
+      form: s.form,
+      err: s.err,
+      erreurGlobale: s.erreurGlobale,
+      majPrenom: (e) => this.champ('prenom', e.target.value),
+      majNom: (e) => this.champ('nom', e.target.value),
+      majEmail: (e) => this.champ('email', e.target.value),
+      majAdresse: (e) => this.champ('adresse', e.target.value),
+      majCp: (e) => this.champ('cp', e.target.value),
+      majVille: (e) => this.champ('ville', e.target.value),
+      majPays: (e) => this.champ('pays', e.target.value),
+      confirmer: () => this.confirmerCommande(),
+
+      commande: s.commande,
+      sansCommande: !s.commande
+    };
+  }
+
+  champ(nom, valeur) {
+    const form = Object.assign({}, this.state.form, { [nom]: valeur });
+    const err = Object.assign({}, this.state.err);
+    delete err[nom];
+    this.setState({ form, err, erreurGlobale: '' });
+  }
+}
+</script>
+</body>
+</html>
