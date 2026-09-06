@@ -25,7 +25,17 @@ et Confirmation.
 | | |
 | --- | --- |
 | Dépôt | https://github.com/AGACIH/workshop2 |
-| Production | *à renseigner au lot 2* |
+| Projet Vercel | https://vercel.com/agaci-test/workshop2 |
+| Production | https://workshop2-agaci-test.vercel.app |
+
+> `workshop2.vercel.app` (sans suffixe) appartient à un autre compte Vercel : ce n'est pas ce projet.
+> L'adresse de production est bien celle avec le suffixe d'équipe.
+>
+> **La protection de déploiement de Vercel est active** : l'adresse de production renvoie vers la
+> page de connexion Vercel. Tant qu'elle n'est pas désactivée
+> (*Settings › Deployment Protection › Vercel Authentication › Disabled*), le livrable du chapitre 11
+> du cahier — « l'adresse de production » — n'est pas consultable, et la vérification des dix photos
+> en ligne du lot 2 est impossible.
 
 ## Socle installé
 
